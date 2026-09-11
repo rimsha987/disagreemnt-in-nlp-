@@ -30,9 +30,11 @@ def main():
     ax.set_xlabel("disagreement tertile (entropy of the unfiltered distribution)")
     ax.set_ylim(0, 0.0215)
     ax.set_title("Filtering shifts labels more on contested items", pad=8)
-    ax.text(0.98, 0.06, f"Kruskal-Wallis H = {kw.statistic:.2f}, p = {kw.pvalue:.1e}\n"
+    # Top-left. The previous position (bottom-right, 0.98/0.06) sat on top of the
+    # "High" bar, which only became obvious once the figure was scaled down.
+    ax.text(0.02, 0.97, f"Kruskal-Wallis H = {kw.statistic:.2f}, p = {kw.pvalue:.1e}\n"
                         f"majority flips: 0 / 0 / 9",
-            transform=ax.transAxes, ha="right", fontsize=7.8, color=PS.GREY)
+            transform=ax.transAxes, ha="left", va="top", fontsize=7.8, color=PS.GREY)
     PS.save(fig, "fig2_tertiles")
     print(f"   tertile means: {eb.mean_tvd.round(5).tolist()}, n = {eb.n.tolist()}")
     print(f"   Kruskal-Wallis H={kw.statistic:.3f} p={kw.pvalue:.3g}")

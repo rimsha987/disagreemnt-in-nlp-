@@ -19,7 +19,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{microtype}
-\usepackage[margin=2.5cm]{geometry}
+\usepackage[margin=2.0cm]{geometry}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tabularx}
@@ -30,7 +30,7 @@
 \usepackage[hidelinks]{hyperref}   % hyperref provides \url
 
 \captionsetup{font=small,labelfont=bf,skip=6pt}
-\setlength{\parskip}{0.4em}
+\setlength{\parskip}{0.25em}
 \setlength{\parindent}{0pt}
 \renewcommand{\arraystretch}{1.15}
 
@@ -402,7 +402,7 @@ pool. The dataset was released under CC BY 4.0. The primary annotation analyzed 
 \centering
 \caption{Core properties of DICES-350 used in the analysis.}
 \label{tab:core}
-\begin{tabular}{ll}
+\small\begin{tabular}{ll}
 \toprule
 \textbf{Quantity} & \textbf{Value} \\
 \midrule
@@ -439,7 +439,7 @@ generated all 350 item-level changes.
 \centering
 \caption{Demographic composition of the full rater pool.}
 \label{tab:pool}
-\begin{tabular}{lr@{\hskip 2em}lr@{\hskip 2em}lr}
+\small\begin{tabular}{lr@{\hskip 2em}lr@{\hskip 2em}lr}
 \toprule
 \textbf{Gender} & \textbf{n} & \textbf{Race/ethnicity} & \textbf{n} & \textbf{Age group} & \textbf{n} \\
 \midrule
@@ -595,7 +595,7 @@ decision from proceeding to stopping.
 \centering
 \caption{Removal counts and rates by demographic group.}
 \label{tab:removal}
-\begin{tabular}{llrrr}
+\small\begin{tabular}{llrrr}
 \toprule
 \textbf{Variable} & \textbf{Group} & \textbf{Pool} & \textbf{Removed} & \textbf{Rate} \\
 \midrule
@@ -653,7 +653,7 @@ reason for removal.
 % pool-mean reference line. New caption already applied below.
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/fig1_removal_rate_by_group.pdf}
+\includegraphics[width=0.86\textwidth]{figures/fig1_removal_rate_by_group.pdf}
 \caption{Removal rate by demographic group under the published DICES-350 filter (19 of 123
 raters). Points are removal rates and bars are exact Clopper-Pearson 95\% intervals; group size
 is given on each label. The grey line marks the pool-wide rate of 15.4\%. Intervals are wide
@@ -675,7 +675,7 @@ Yes.
 \centering
 \caption{Published filter compared with random removal of 19 raters (Null B).}
 \label{tab:nullb-rq1}
-\begin{tabular}{lrrrr}
+\small\begin{tabular}{lrrrr}
 \toprule
 \textbf{Statistic} & \textbf{Observed} & \textbf{Null mean} & \textbf{z} & \textbf{p} \\
 \midrule
@@ -699,7 +699,7 @@ observations behind every item, the soft-label estimator absorbs much of the per
 \centering
 \caption{Filtering effect across disagreement tertiles under the primary and secondary metrics.}
 \label{tab:tertiles}
-\begin{tabular}{lrrrrr}
+\small\begin{tabular}{lrrrrr}
 \toprule
 \textbf{Disagreement tertile} & \textbf{n} & \textbf{Mean JSD} & \textbf{Mean TVD} &
 \textbf{Mean $|\Delta P(\text{Yes})|$} & \textbf{Flips} \\
@@ -722,7 +722,7 @@ because its Unsure count falls from two raters to zero.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.72\textwidth]{figures/fig2_tertiles.pdf}
+\includegraphics[width=0.62\textwidth]{figures/fig2_tertiles.pdf}
 \caption{Mean TVD between filtered and unfiltered item distributions by disagreement tertile
 ($n = 118$, 115, 117). The increase is monotonic, Kruskal-Wallis $p = 8.4\mathrm{e}{-05}$, and is
 consistent with the tie-aware majority-flip pattern of 0, 0 and 9.}
@@ -740,7 +740,7 @@ interpreted.
 % >>> OPTIONAL <<<  Uncomment to add the metric-sensitivity figure here.
 % \begin{figure}[htbp]
 % \centering
-% \includegraphics[width=\textwidth]{figures/fig2c_metric_sensitivity.pdf}
+% \includegraphics[width=0.86\textwidth]{figures/fig2c_metric_sensitivity.pdf}
 % \caption{Why TVD replaces JSD as the primary metric. JSD against disagreement shows no trend
 % while TVD rises monotonically, because JSD's second-order form weights each category by $1/p_i$
 % and amplifies near-empty cells.}
@@ -775,7 +775,7 @@ demographically skewed with respect to gender.
 \centering
 \caption{Candidate grouping schemes scored against the size-matched null (Null A).}
 \label{tab:schemes}
-\begin{tabular}{lrrrrrr}
+\small\begin{tabular}{lrrrrrr}
 \toprule
 \textbf{Grouping scheme} & \textbf{Cells} & \textbf{Min cell} & \textbf{Observed spread} &
 \textbf{Null} & \textbf{Excess} & \textbf{z} \\
@@ -835,7 +835,7 @@ more structured disagreement than the model produces by ordinary sampling.
 % as though it exceeded the floor. It does not. New caption already applied.
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/fig3_noise_floor.pdf}
+\includegraphics[width=0.74\textwidth]{figures/fig3_noise_floor.pdf}
 \caption{Persona differences against the same-persona sampling floor. Each grey point is one pair
 of repeated draws from the same persona and therefore contains no demographic difference by
 construction; the shaded band is their full range (1--4 of 15). Both between-cell values fall
@@ -850,7 +850,7 @@ within-cell comparison (4/15) is larger than either between-cell value.}
 \centering
 \caption{Persona-conditioned between-cell differences and the same-persona noise floor.}
 \label{tab:persona}
-\begin{tabular}{lrrrr}
+\small\begin{tabular}{lrrrr}
 \toprule
 \textbf{Condition} & \textbf{Between-cell difference} &
 \textbf{$P(\text{noise} \geq \text{obs})$} & \textbf{Percentile} & \textbf{Directional gap} \\
@@ -895,7 +895,7 @@ persona text.
 \centering
 \caption{Unsafe-rate comparison on the matched 15-item subset.}
 \label{tab:calib}
-\begin{tabular}{lrr}
+\small\begin{tabular}{lrr}
 \toprule
 \textbf{Rater set} & \textbf{Matched 15} & \textbf{All 350} \\
 \midrule
@@ -930,7 +930,7 @@ language model would behave similarly.
 \centering
 \caption{Between-group spread before and after filtering, with size-matched nulls.}
 \label{tab:spread}
-\begin{tabular}{llrrrr}
+\small\begin{tabular}{llrrrr}
 \toprule
 \textbf{Grouping} & \textbf{Condition} & \textbf{TVD} & \textbf{Null A} & \textbf{Excess} & \textbf{z} \\
 \midrule
@@ -972,7 +972,7 @@ noise.
 \centering
 \caption{Observed change in between-group spread relative to random 19-rater removal.}
 \label{tab:nullb-rq3}
-\begin{tabular}{lrrrr}
+\small\begin{tabular}{lrrrr}
 \toprule
 \textbf{Grouping} & \textbf{Delta in spread} & \textbf{Null B} & \textbf{z} & \textbf{p} \\
 \midrule
@@ -1030,7 +1030,7 @@ draw per group, with the human value estimated from 2,000 bootstrap draws.
 \centering
 \caption{Between-group spread under a common one-draw-per-group estimator.}
 \label{tab:headline}
-\begin{tabular}{llrrr}
+\small\begin{tabular}{llrrr}
 \toprule
 \textbf{Condition} & \textbf{Scope} & \textbf{TVD} & \textbf{95\% interval} &
 \textbf{$P(\text{noise} \geq \text{obs})$} \\
@@ -1045,7 +1045,7 @@ Same-persona noise floor & 15 items, $n=1$ & 0.140 & [0.067, 0.267] & -- \\
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/fig6_between_group_spread.pdf}
+\includegraphics[width=0.86\textwidth]{figures/fig6_between_group_spread.pdf}
 \caption{Between-group spread: human diversity versus the synthetic conditions. Left panel: full
 human spread over 350 items with a size-matched null. Right panel: like-for-like one-draw
 estimates on 15 matched items. The LLM persona conditions remain inside the same-persona noise
@@ -1083,7 +1083,7 @@ direction of change matters and an unlabelled pair of numbers does not convey it
 \centering
 \caption{Between-group spread by degree of harm, primary grouping, before and after filtering.}
 \label{tab:harmbreak}
-\begin{tabular}{lrrrr}
+\small\begin{tabular}{lrrrr}
 \toprule
 \textbf{Degree of harm} & \textbf{Items} & \textbf{All 123} & \textbf{104 kept} & \textbf{Change} \\
 \midrule
