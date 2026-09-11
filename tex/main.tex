@@ -173,7 +173,8 @@ label distributions, particularly when labels are estimated from relatively smal
 Persona-prompting reverses the direction of the proposed intervention. Instead of deleting
 people, it tries to create additional variation by asking a model to behave as a member of a
 specified demographic group. Pavlovic and Poesio (2024) develop this as direct representation,
-Hu and Collier (2024) survey persona steering approaches, and Kirk et al.\ (2024) and
+Hu and Collier (2024) measure how much persona conditioning actually moves model
+annotations, and Kirk et al.\ (2024) and
 Sorensen et al.\ (2024) connect it to personalized and pluralistic alignment.
 
 The two practices therefore appear to be opposites: one removes variation and the other attempts
@@ -341,15 +342,6 @@ elicited genuinely different views. Applied to argument concreteness, this treat
 as something to flag rather than to resolve, an alternative to removing raters that leaves the
 disagreement visible downstream.
 
-\subsection{Summary of the gap}
-
-Filtering and persona-prompting have each been examined, and disagreement has been taxonomised
-(Lindahl, 2024; Jiang \& de Marneffe, 2022; Weber-Genzel et al., 2024), traced to annotator
-characteristics (Sang \& Stanton, 2022), and modelled downstream (Gordon et al., 2022;
-Romberg, 2022). What has not been done is to measure both operations on the same items, with the
-same metric, against the same null, and to ask whether they converge on the same reduced view.
-That is the question this paper addresses.
-
 \subsection{Rater quality and filtering}
 
 The project's filtering analysis is motivated by the possibility that quality control can change
@@ -374,7 +366,9 @@ used in the released data rather than a simulation of an invented quality criter
 The LLM arm is situated in a literature that considers whether language models can represent
 human characteristics directly or through persona conditioning. Pavlovic and Poesio (2024)
 propose direct representation, in which a model is asked to stand in for an annotator, while
-Hu and Collier (2024) survey approaches to persona steering. Kirk et al.\ (2024) and Sorensen et al.\ (2024) are
+Hu and Collier (2024) quantify the effect of persona conditioning directly, reporting that
+persona variables account for under 10\% of annotation variance in existing subjective datasets
+and that persona prompting yields modest though statistically significant gains. Kirk et al.\ (2024) and Sorensen et al.\ (2024) are
 connected to personalized and pluralistic alignment. The methodological gap highlighted by the
 present project is narrower: persona-conditioned differences need to be compared with a
 same-persona baseline. Without such a baseline, a between-group difference can be mistaken for
@@ -387,6 +381,16 @@ substantial if the only reference point is zero change, but the same number is u
 repeated draw from one unchanged persona commonly changes on two items. The project therefore
 measures the noise floor first, fixes the decision rule before the full run, and stops when the
 observed between-cell differences fail that rule.
+\subsection{Summary of the gap}
+
+Filtering and persona-prompting have each been examined, and disagreement has been taxonomised
+(Lindahl, 2024; Jiang \& de Marneffe, 2022; Weber-Genzel et al., 2024), traced to annotator
+characteristics (Sang \& Stanton, 2022), and modelled downstream (Gordon et al., 2022;
+Romberg, 2022). What has not been done is to measure both operations on the same items, with the
+same metric, against the same null, and to ask whether they converge on the same reduced view.
+That is the question this paper addresses.
+
+
 
 % =====================================================================
 \section{Data}
@@ -462,9 +466,9 @@ grouping.
 Across all 43,050 ratings, \texttt{Q\_overall} is 61.1\% No, 32.7\% Yes, and 6.3\% Unsure. Unsure
 is retained as a separate category throughout the main analysis. This decision preserves an
 explicit uncertainty response instead of forcing it into a binary classification. A robustness
-analysis collapses Unsure into No; the resulting mean TVD is 0.00024 compared with 0.00055 for
+analysis collapses Unsure into No; the resulting mean TVD is 0.01187 compared with 0.01556 for
 the original three-way representation, the Spearman correlation between the two per-item series
-is $+0.616$, and the substantive conclusion is unchanged.
+is $+0.828$, and the substantive conclusion is unchanged.
 
 The \texttt{safety\_gold} item field is exactly balanced: 175 Yes and 175 No. The
 \texttt{degree\_of\_harm} field contains 199 Extreme, 98 Moderate, 31 Benign, and 22 Debatable
@@ -750,7 +754,7 @@ interpreted.
 \subsubsection{Removed raters display quality signals}
 \label{sec:quality}
 
-The rater-level profiles also support the interpretation that the published exclusion list is a
+The rater-level profiles also support the interpretation that the published exclusion list is
 based on quality-related signals rather than on demographic selection. The removed group has a
 median answer time of 41,118~ms compared with 123,360~ms for the 104 kept raters, with a
 Mann-Whitney U $p$-value of 0.0013. Their modal-label share is higher (0.7143 vs 0.6343,
@@ -807,7 +811,10 @@ corresponding single-axis comparison.
 The chosen cells cover 85 of the 123 human raters. Latine/x (22) and Multiracial (16) are omitted
 from the six-cell primary grouping. This is important when interpreting the resulting benchmark:
 Multiracial is the group with the highest overall $P(\text{Yes})$, so the selected cells span a
-narrower range than the complete human pool. The resulting human contrast is therefore
+narrower range than the complete human pool. These two adjustments run in opposite directions:
+selecting the grouping with the largest observed excess inflates the benchmark, while excluding
+the two highest-$P(\text{Yes})$ groups deflates it. Their sizes are not known, so they cannot be
+netted against one another and neither is treated as cancelling the other. The resulting human contrast is therefore
 conservative with respect to the amount of demographic variation available in the source data.
 
 \subsubsection{Execution and provenance}
@@ -949,7 +956,7 @@ age3 & Kept raters ($n=104$) & 0.10715 & 0.10727 & $-0.00012$ & $-0.01$ \\
 
 The age grouping serves as a negative control: its excess over Null A is close to zero in both
 conditions, at $z = -0.34$ across all 123 raters and $z = -0.01$ after filtering. In contrast the
-primary race3 $	imes$ gender2 grouping reaches $z = +3.78$ before filtering and $+2.75$ after. The
+primary race3 $\times$ gender2 grouping reaches $z = +3.78$ before filtering and $+2.75$ after. The
 contrast shows that the measure separates demographic structure from finite-sample variation
 rather than reporting spread wherever groups are small. One qualification is necessary: age was
 identified as showing no excess over its null during the grouping-selection step on this same
@@ -1058,9 +1065,12 @@ them is 1 when the two labels differ and 0 when they agree; the mean TVD is ther
 proportion of items on which the two draws disagree. The comparison is stark but should be
 interpreted exactly as measured. Two randomly chosen humans from the selected demographic
 contrast disagree on 52\% of the 15 matched items, yielding a TVD of 0.524. Two model-persona conditions yield 0.133 and 0.200. The same-persona noise floor is
-0.140, with a range of [0.067, 0.267]. The human condition lies outside the noise floor in all
-2,000 bootstrap draws, while both LLM conditions fall within the range produced by
-unchanged-persona sampling. The model therefore does not demonstrate measurable demographic
+0.140, with a range of [0.067, 0.267]. No same-persona pair reaches the human mean of 0.524,
+so $P(\text{noise} \geq \text{observed})$ is 0.00 for the human condition; that figure compares
+the ten same-persona values against the bootstrap mean. Taking the bootstrap distribution as a
+whole, 1,939 of 2,000 draws (96.9\%) exceed the largest same-persona value, so the human
+contrast is not separated from sampling noise in every draw, only in the large majority of them.
+Both LLM conditions, by contrast, fall inside the range produced by unchanged-persona sampling. The model therefore does not demonstrate measurable demographic
 separation in the pilot in the sense required by the study design.
 
 This estimator-matched result also shows why the negative finding is not created by comparing a
@@ -1397,10 +1407,12 @@ project repository.
 \section{Binary-collapse robustness check}
 
 The main analysis keeps Unsure as a third label category. As a robustness check, Unsure is merged
-into No. Under that binary representation, mean TVD between filtered and unfiltered item
-distributions is 0.00024, compared with 0.00055 under the three-way representation. The Spearman
-correlation between the two per-item series is $+0.616$, and the substantive conclusion is
-unchanged. The appendix is intended as a robustness check rather than as the
+into No. Under that binary representation the mean TVD between filtered and unfiltered item
+distributions is 0.01187, compared with 0.01556 under the three-way representation, and the
+Spearman correlation between the two per-item series is $+0.828$. On the secondary metric the
+corresponding JSD values are 0.00024 and 0.00055. The substantive conclusion is unchanged under
+either metric. The binary figures are smaller because collapsing Unsure into No makes movement
+between those two categories invisible, and 6.3\% of all ratings are Unsure. The appendix is intended as a robustness check rather than as the
 preferred representation, because the three-way analysis preserves the explicit uncertainty
 response.
 
