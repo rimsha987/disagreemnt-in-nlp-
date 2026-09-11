@@ -195,7 +195,7 @@ def main():
              "rater-to-group labels at fixed group sizes.\nRight: every condition reduced to the "
              "LLM's own estimator (one draw per group) so they are comparable. Both LLM "
              "conditions fall inside\nthe band of pure sampling noise measured from repeating a "
-             "single persona; the human condition does not.",
+             "single persona; the human condition lies above it in 96.9% of bootstrap draws.",
              ha="center", fontsize=7.3, color=PS.GREY)
     PS.save(fig, "fig6_between_group_spread")
     print("\n   wrote results/13_headline_numbers.csv")

@@ -30,7 +30,7 @@
 \usepackage[hidelinks]{hyperref}   % hyperref provides \url
 
 \captionsetup{font=small,labelfont=bf,skip=6pt}
-\setlength{\parskip}{0.25em}
+\setlength{\parskip}{0.20em}
 \setlength{\parindent}{0pt}
 \renewcommand{\arraystretch}{1.15}
 
@@ -103,7 +103,7 @@ quality assessment.
 
 Three results are robust. First, the filter's effect on pooled label distributions is
 indistinguishable from removing 19 raters at random: mean total variation distance is 0.01556 and
-every permutation comparison is non-significant. With 123 raters behind each item, a 15.4\%
+every pooled-label permutation comparison is non-significant. With 123 raters behind each item, a 15.4\%
 deletion is absorbed by ordinary sampling variation, which suggests replication depth as an
 important moderator of filtering impact rather than establishing that filtering is harmless.
 Second, metric choice determines the substantive conclusion about contested items: TVD rises
@@ -124,7 +124,8 @@ the only axis on which between-group spread falls relative to random removal ($p
 that comparison was selected after inspecting four groupings and is reported as suggestive only.
 Taken together the results do not support a general claim that filtering and persona-prompting
 flatten disagreement in the same way. Filtering leaves demographic structure largely intact at
-this replication depth, while the tested model generated no demographic variation to flatten.
+this replication depth, while the tested model generated no demographic variation
+distinguishable from its own sampling noise.
 \end{abstract}
 
 % =====================================================================
@@ -206,8 +207,8 @@ LLM labels exhibit reduced between-group spread, and if so, do they reduce it in
 \begin{itemize}[leftmargin=1.6em]
 \item An audit of the filter actually applied to the DICES-350 rater pool rather than a threshold
 constructed specifically for this study.
-\item A scope condition showing why a demographically biased filter can be distributionally mild
-at high replication depth.
+\item A scope condition, consistent with the present data though not experimentally varied,
+under which a demographically biased filter is distributionally mild at high replication depth.
 \item A metric analysis showing that TVD and JSD can lead to different substantive conclusions
 about contested items.
 \item A persona-prompting evaluation with a measured same-persona sampling floor and an
@@ -368,8 +369,10 @@ human characteristics directly or through persona conditioning. Pavlovic and Poe
 propose direct representation, in which a model is asked to stand in for an annotator, while
 Hu and Collier (2024) quantify the effect of persona conditioning directly, reporting that
 persona variables account for under 10\% of annotation variance in existing subjective datasets
-and that persona prompting yields modest though statistically significant gains. Kirk et al.\ (2024) and Sorensen et al.\ (2024) are
-connected to personalized and pluralistic alignment. The methodological gap highlighted by the
+and that persona prompting yields modest though statistically significant gains. Kirk et al.\ (2024) set out the benefits and
+risks of aligning models to individuals and argue for bounds on how far personalisation should
+go, while Sorensen et al.\ (2024) formalise pluralistic alignment as the requirement that a
+model reflect a distribution of human positions rather than a single aggregate. The methodological gap highlighted by the
 present project is narrower: persona-conditioned differences need to be compared with a
 same-persona baseline. Without such a baseline, a between-group difference can be mistaken for
 evidence of demographic conditioning even when the model would have produced the same amount of
@@ -772,6 +775,7 @@ demographically skewed with respect to gender.
 \subsection{RQ2: persona-prompting}
 
 \subsubsection{Selecting a human signal before testing the model}
+\label{sec:cells}
 
 % >>> CORRECTION 5 <<<  race3 row: Min cell is 26, not 16. Already corrected below.
 % >>> CORRECTION 6 <<<  Footnote added below; add the same note to Table 9.
@@ -814,8 +818,9 @@ Multiracial is the group with the highest overall $P(\text{Yes})$, so the select
 narrower range than the complete human pool. These two adjustments run in opposite directions:
 selecting the grouping with the largest observed excess inflates the benchmark, while excluding
 the two highest-$P(\text{Yes})$ groups deflates it. Their sizes are not known, so they cannot be
-netted against one another and neither is treated as cancelling the other. The resulting human contrast is therefore
-conservative with respect to the amount of demographic variation available in the source data.
+netted against one another and neither is treated as cancelling the other. The benchmark is
+therefore neither known to overstate nor known to understate the human variation available in
+the source data.
 
 \subsubsection{Execution and provenance}
 
@@ -881,8 +886,7 @@ ordinary sampling noise is already large enough to explain the observed separati
 The power limitation is explicit. With ten same-persona pairs, the smallest achievable tail
 probability is 0.10, so this pilot design cannot yield a $p$-value of 0.05 or less for a positive
 effect. It can, however, show that an observed between-cell difference is not distinguishable from the
-sampling variation observed under an unchanged persona, which is what occurs when the observed
-between-cell difference is small relative to the noise floor. That is what occurs here. The arm
+sampling variation observed under an unchanged persona, which is the case here. The arm
 is therefore stopped rather than expanded into the originally planned 3,675-call run.
 
 \subsubsection{Robustness across prompt formulations}
@@ -892,7 +896,7 @@ explicitly scoped the task to the model's final turn. Prompt v2 replaced an earl
 instruction with a two-sided formulation and moved the persona block adjacent to the rating
 instruction. The model's $P(\text{Yes})$ changed from 0.050 to 0.044. Both values remain near the
 same overall behavior, and neither prompt produces a between-cell difference that clears the
-sampling floor. The materials therefore support the scoped claim that, under these two
+sampling floor. The evidence therefore supports the scoped claim that, under these two
 formulations, the tested model did not condition its DICES safety ratings on the demographic
 persona text.
 
@@ -918,7 +922,7 @@ Model, v2 & 0.044 & -- \\
 The persona failure is accompanied by an aggregate mismatch that does not depend on variation at
 all. On the matched 15 items, the human pool assigns Yes with probability 0.278. The Asian-Woman
 human cell is at 0.433 and the White-Man cell at 0.109. The model assigns Yes only 0.050 under v1
-and 0.044 under v2. Thus, on the matched items, the model is approximately 5.6 times less likely
+and 0.044 under v2. Thus, on the matched items, the model is between 5.6 and 6.3 times less likely
 than the human pool to call an item unsafe, and it falls below even the most permissive human
 cell. This makes the negative result stronger than a simple failure to generate demographic
 variation: even before asking whether different personas disagree, the model's overall
@@ -1056,7 +1060,7 @@ Same-persona noise floor & 15 items, $n=1$ & 0.140 & [0.067, 0.267] & -- \\
 \caption{Between-group spread: human diversity versus the synthetic conditions. Left panel: full
 human spread over 350 items with a size-matched null. Right panel: like-for-like one-draw
 estimates on 15 matched items. The LLM persona conditions remain inside the same-persona noise
-range, while the human condition lies outside it.}
+range; the human condition lies above it in 96.9\% of bootstrap draws (1,939 of 2,000).}
 \label{fig:spread}
 \end{figure}
 
@@ -1138,17 +1142,16 @@ diversity for the comparison to flatten. Both persona conditions remain
 within the same-persona sampling floor, and the model simultaneously under-flags unsafe items
 relative to the human pool. This means the model cannot substitute for the human rater
 distribution under the tested protocol even before the more demanding question of whether it
-preserves demographic structure is considered. Unlike the filtering results below, this
+preserves demographic structure is considered. Unlike the gender observation below, this
 conclusion does not depend on any marginal significance test: the observed differences sit inside
 a directly measured noise floor.
 
 A third, weaker observation concerns one specific axis. Gender is the only grouping whose
 between-group spread falls relative to random removal, moving from $z = +1.26$ to $z = -0.36$,
 with the groups also moving closer to the pooled position. This is the axis on which RQ1 finds the
-removal imbalance, so the two observations are consistent. They are not, however, equally strong,
-and they are not independent. The removal test was planned and is significant at its nominal level
-before family-wise correction; the compression comparison was selected after inspecting four
-groupings and carries the full post-hoc discount. Both are generated by the same exclusion set, so
+removal imbalance, so the two observations are consistent. They are not, however, equally strong, and
+they are not independent: the removal test was planned while the compression comparison was
+selected post-hoc (Section~\ref{sec:removal}), and the same exclusion set generates both, so
 their agreement is closer to one finding measured twice than to two convergent tests. Targeted
 compression is therefore offered as a hypothesis the data are compatible with, not as an
 established result.
@@ -1175,7 +1178,7 @@ replication depth. The filter can still be demographically biased without produc
 change in the overall item distribution.
 
 This result is consistent with, rather than contradictory to, the filtering concern summarized
-from Fleisig et al.\ (2025). Their concern is relevant to settings with much shallower rater
+raised by Fleisig et al.\ (2025). Their concern is relevant to settings with much shallower rater
 depth.
 % CORRECTION 9 APPLIED: the "3 to 5 raters" figure was unsourced and is now
 % stated as a general observation rather than attributed to a source.
@@ -1232,17 +1235,11 @@ that imbalance changes a pooled distribution when the remaining rater count is l
 
 \subsection{Statistical power and multiplicity}
 Nineteen removals generate wide confidence intervals, with half-widths of 7.6 to 20.8 percentage points
-in Table~\ref{tab:removal}. Both gender findings are affected by multiplicity, but they are \emph{not}
-affected equally and are not reported at the same standard. The removal imbalance
-(Section~\ref{sec:removal}, $p = 0.0262$) is a \emph{planned} comparison: the protocol specified
-testing each demographic variable before any result existed. It does not survive family-wise
-correction across the four axes (Bonferroni and Holm both give an adjusted 0.105), but it was
-not selected for being the largest of several, and whether a single family-wise correction is
-appropriate across four distinct pre-specified hypotheses is contestable. The compression
-comparison (Section~\ref{sec:compress}, $p = 0.037$) is \emph{post-hoc}: gender was identified as
-the compressed axis after inspecting four groupings, so it takes the full discount and is reported
-as suggestive without further defence. The two are also not independent of each other, since the
-same exclusion set generates both.
+in Table~\ref{tab:removal}. The two gender findings are affected by multiplicity unequally, and
+the distinction is set out in Section~\ref{sec:removal}: the removal imbalance is a planned
+comparison that does not survive family-wise correction, while the compression comparison is
+post-hoc and takes the full discount. Neither is independent of the other, since the same
+exclusion set generates both.
 Likewise, the ten-pair same-persona pilot has a minimum achievable tail probability of 0.10. The
 pilot is informative for rejecting effects that clearly fail the noise-floor criterion, but it is
 not sized to estimate small positive persona effects precisely.
@@ -1256,8 +1253,10 @@ small-cell differences are not interpreted as established effects.
 The six race-by-gender cells used for persona selection cover 85 of 123 raters and exclude
 Latine/x and Multiracial participants. Because the Multiracial group has the highest overall
 $P(\text{Yes})$, the selected cells likely understate the total range available in the full rater
-pool. This makes the human benchmark conservative in the direction of the model: the model was
-not asked to reproduce the widest possible demographic contrast.
+pool. In that respect the model was not asked to reproduce the widest available demographic
+contrast. This pulls against the selection effect noted in Section~\ref{sec:cells}, where the
+grouping was chosen for having the largest observed excess; the two act in opposite directions
+and their relative sizes are unknown, so the benchmark is not claimed to be conservative overall.
 
 \subsection{One model, two prompts, and no pinnable snapshot}
 RQ2 uses a single open-weights model selected by quota arithmetic, two prompt formulations, and
@@ -1333,7 +1332,7 @@ on Benchmarking: Past, Present and Future}, 15--21. Association for Computationa
 
 \item Fleisig, E., Orlikowski, M., Cimiano, P., \& Klein, D. (2025). Balancing Quality and
 Variation: Spam Filtering Distorts Data Label Distributions. In \emph{Proceedings of the 4th
-Workshop on Perspectivist Approaches to NLP (NLPerspectives)}, Suzhou, China.
+Workshop on Perspectivist Approaches to NLP (NLPerspectives)}, 47--62, Suzhou, China.
 \url{https://aclanthology.org/2025.nlperspectives-1.5/}
 
 \item Gordon, M. L., Lam, M. S., Park, J. S., Patel, K., Hancock, J. T., Hashimoto, T., \&
@@ -1375,8 +1374,8 @@ Subjectivity. In \emph{Proceedings of the 9th Workshop on Argument Mining}, 115-
 
 \item Sang, Y., \& Stanton, J. M. (2022). The Origin and Value of Disagreement Among Data
 Labelers: A Case Study of Individual Differences in Hate Speech Annotation. In
-\emph{Proceedings of the 17th International Conference on Information (iConference 2022)},
-425--444. \url{https://arxiv.org/abs/2112.04030}
+\emph{Information for a Better World: Shaping the Global Future. 17th International Conference,
+iConference 2022}, 425--444. Springer. \url{https://arxiv.org/abs/2112.04030}
 
 \item Sorensen, T., Moore, J., Fisher, J., Gordon, M. L., Mireshghallah, N., Rytting, C. M., Ye,
 A., Jiang, L., Lu, X., Dziri, N., Althoff, T., \& Choi, Y. (2024). Position: A Roadmap to
