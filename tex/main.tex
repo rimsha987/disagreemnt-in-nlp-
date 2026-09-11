@@ -164,8 +164,8 @@ a language model to simulate additional perspectives.
 Rater filtering is usually framed as a cleaning operation. A subset of annotators is removed
 because their behavior appears inconsistent with the intended task. Quality checks of this kind
 typically target signals such as implausibly short completion times or near-constant labelling,
-though the criteria behind any particular published filter --- including the one examined here
---- are often not stated. The intuitive benefit is that the remaining pool should provide more
+though the criteria behind any particular published filter, including the one examined here,
+are often not stated. The intuitive benefit is that the remaining pool should provide more
 reliable labels. The corresponding risk is that the filter may remove a
 particular type of person disproportionately and thereby change the distribution of judgments.
 Fleisig et al.\ (2025) provide the core motivation for testing this risk: filtering can distort
@@ -260,8 +260,8 @@ hypotheses; \emph{annotator behaviour} covers accommodating minimally added cont
 lexical overlap heuristics. The three classes locate disagreement in the item, in the task
 definition, and in the annotator respectively.
 
-Weber-Genzel et al.\ (2024) draw a different line, between human label variation --- different
-labels assigned for valid reasons --- and annotation error, where a label is assigned for an
+Weber-Genzel et al.\ (2024) draw a different line, between human label variation (different
+labels assigned for valid reasons) and annotation error, where a label is assigned for an
 invalid reason. Their contribution is methodological as much as conceptual: in VariErr NLI they
 operationalise the distinction with a two-round procedure in which annotators first explain each
 label and then judge the validity of others' label--explanation pairs, producing 7,732 validity
@@ -295,8 +295,8 @@ differences & stable annotator characteristics \\
 
 These accounts matter for the present study in a specific way, and the point is not one any of
 them makes. A rater quality filter is an operation that removes annotators. Read against
-Jiang and de Marneffe's taxonomy, such a filter is aimed at their third class --- annotator
-behaviour --- while their first two classes are precisely the signal a disagreement-aware
+Jiang and de Marneffe's taxonomy, such a filter is aimed at their third class, annotator
+behaviour, while their first two classes are precisely the signal a disagreement-aware
 analysis wants to keep. A filter that cannot distinguish the classes removes both. Read against
 Weber-Genzel et al., the difficulty sharpens: separating error from variation required them to
 collect explanations and validity judgments, because the distinction lives in the reason and not
@@ -307,7 +307,7 @@ exclusion list as a single fixed operation rather than a criterion that could be
 
 Sang and Stanton's finding adds a further caution. If disagreement is partly a function of stable
 annotator characteristics, then filtering on behavioural signals risks removing \emph{people}
-rather than \emph{errors} --- which is testable, and is what RQ1 tests.
+rather than \emph{errors}, which is testable and is what RQ1 tests.
 
 This also fixes the scope of what this paper measures. The analysis operates on categorical
 item-level labels: soft-label vectors over No, Yes, and Unsure, compared with TVD and JSD.
@@ -338,7 +338,7 @@ Romberg (2022) takes a different route to the same concern. Rather than changing
 count, PerspectifyMe enriches a prediction with a subjectivity score derived from the annotation
 process, so that a model reports both an aggregated hard label and an indication of which items
 elicited genuinely different views. Applied to argument concreteness, this treats contested items
-as something to flag rather than to resolve --- an alternative to removing raters that leaves the
+as something to flag rather than to resolve, an alternative to removing raters that leaves the
 disagreement visible downstream.
 
 \subsection{Summary of the gap}
@@ -627,7 +627,7 @@ The size of the uncertainty matters, and two qualifications apply. First, ninete
 spread across a rater pool of 123, and the smallest race cell contains only 16 people. The
 confidence intervals are wide, with half-widths ranging from 7.6 to 20.8 percentage points
 (median 13.1) across the
-table, so the exact magnitude is not estimated precisely --- the odds-ratio interval [1.05, 12.83]
+table, so the exact magnitude is not estimated precisely; the odds-ratio interval [1.05, 12.83]
 only barely excludes 1.
 
 Second, this is one of four omnibus tests, and the correction is worth stating carefully because
@@ -1002,7 +1002,7 @@ measures what that removal did to the gender grouping. Their agreement is theref
 finding measured twice rather than two convergent tests.
 
 What the comparison does add is directional. Removing raters shrinks every group, and smaller
-groups produce noisier distributions, which normally \emph{increases} apparent spread --- as the
+groups produce noisier distributions, which normally \emph{increases} apparent spread, as the
 positive Null B means for the other three groupings show. The male group falls from 61 to 47
 while the female group falls only from 62 to 57, so the naive expectation is more apparent gender
 spread, not less. Spread fell instead. The direction is therefore not a mechanical artefact of
@@ -1014,7 +1014,7 @@ compressed axis \emph{after} inspecting all four; the hypothesis that gender spe
 compress was not stated in advance. This is a post-hoc selected comparison, and it takes the full
 discount: a Bonferroni adjustment raises $p = 0.037$ to approximately 0.15, and it is reported as
 suggestive without further defence. The removal imbalance in Section~\ref{sec:removal} is a
-different case --- a planned test of a pre-specified hypothesis --- and the two should not be read
+different case, a planned test of a pre-specified hypothesis, and the two should not be read
 at the same evidential standard.
 
 \subsubsection{Like-for-like comparison of human and model spread}
@@ -1226,7 +1226,7 @@ in Table~\ref{tab:removal}. Both gender findings are affected by multiplicity, b
 affected equally and are not reported at the same standard. The removal imbalance
 (Section~\ref{sec:removal}, $p = 0.0262$) is a \emph{planned} comparison: the protocol specified
 testing each demographic variable before any result existed. It does not survive family-wise
-correction across the four axes --- Bonferroni and Holm both give an adjusted 0.105 --- but it was
+correction across the four axes (Bonferroni and Holm both give an adjusted 0.105), but it was
 not selected for being the largest of several, and whether a single family-wise correction is
 appropriate across four distinct pre-specified hypotheses is contestable. The compression
 comparison (Section~\ref{sec:compress}, $p = 0.037$) is \emph{post-hoc}: gender was identified as
@@ -1259,7 +1259,7 @@ estimate of a small positive effect.
 
 \subsection{Only categorical label disagreement is measured}
 The study cannot separate the boundary, label, and existence forms of disagreement identified by
-Lindahl (2024). Every metric used here --- soft labels, TVD, JSD, and between-group spread ---
+Lindahl (2024). Every metric used here (soft labels, TVD, JSD, and between-group spread)
 assumes that disagreement is expressed as a categorical item-level label. Some of the measured
 spread may therefore reflect raters disagreeing about the question itself rather than simply
 giving different answers to a shared interpretation. The negative persona result is accordingly a
@@ -1416,13 +1416,22 @@ response.
 \section*{Reproducibility}
 \addcontentsline{toc}{section}{Reproducibility}
 
+All analysis code, computed results, figures and raw model responses are available at:
+\begin{center}
+\url{https://github.com/rimsha987/disagreemnt-in-nlp-}
+\end{center}
+
 \begin{itemize}[leftmargin=1.6em]
-\item Every quantity reported above is generated by the analysis scripts and recorded, with its
-source file, in the project's summary table rather than transcribed by hand.
-\item The persona prompts, persona definitions and raw model responses are retained as
-append-only records (180 responses at the stopping point) in the supplementary materials.
-\item The full persona run of 3,675 calls was not executed because the diagnostic stop rule was
-triggered.
+\item Every quantity reported above is generated by the analysis scripts in that repository
+and listed, with the file that produced it, in \texttt{results/SUMMARY\_TABLE.md} rather than
+transcribed by hand.
+\item The persona prompts, the nineteen persona definitions and the complete raw model
+responses (180 records, append-only) are included, so the persona arm can be inspected or
+repeated with a different model.
+\item The DICES dataset itself is not redistributed. It is released by Google LLC under
+CC BY 4.0 and is fetched by the setup command given in the repository README.
+\item The full persona run of 3,675 calls was not executed because the diagnostic stop rule
+was triggered.
 \end{itemize}
 
 \end{document}
