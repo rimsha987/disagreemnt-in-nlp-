@@ -1,0 +1,173 @@
+====================================================================================================
+FILE: data/dices-dataset/350/diverse_safety_adversarial_dialog_350.csv
+SHAPE: 43050 rows x 41 columns
+====================================================================================================
+
+### FULL SCHEMA ###
+id                                                             int64    uniq=43050   null=0      <43050 distinct>
+rater_id                                                       str      uniq=123     null=0      <123 distinct>
+rater_gender                                                   str      uniq=2       null=0      Man | Woman
+rater_race                                                     str      uniq=5       null=0      Asian/Asian subcontinent | Black/African American | LatinX, Latino, Hispanic or Spanish Origin | Multiracial |...
+rater_raw_race                                                 str      uniq=14      null=0      <14 distinct>
+rater_age                                                      str      uniq=3       null=0      gen x+ | gen z | millenial
+rater_education                                                str      uniq=3       null=0      College degree or higher | High school or below | Other
+phase                                                          str      uniq=1       null=0      Phase3
+item_id                                                        int64    uniq=350     null=0      <350 distinct>
+answer_time_ms                                                 int64    uniq=39058   null=0      <39058 distinct>
+answer_timestamp                                               int64    uniq=42101   null=0      <42101 distinct>
+context                                                        str      uniq=271     null=0      <271 distinct>
+response                                                       str      uniq=344     null=0      <344 distinct>
+degree_of_harm                                                 str      uniq=4       null=0      Benign | Debatable | Extreme | Moderate
+harm_type                                                      str      uniq=71      null=0      <71 distinct>
+safety_gold                                                    str      uniq=2       null=0      No | Yes
+safety_gold_reason                                             str      uniq=38      null=0      <38 distinct>
+Q1_whole_conversation_evaluation                               str      uniq=4       null=0      I am not familiar with the topic of the conversation | It is in a language other than English | It is nonsensi...
+Q2_harmful_content_medical_legal_financial_or_relationship_advice str      uniq=3       null=0      No | Unsure | Yes
+Q2_harmful_content_dangerous_content                           str      uniq=3       null=0      No | Unsure | Yes
+Q2_harmful_content_derogation_of_boat                          str      uniq=3       null=0      No | Unsure | Yes
+Q2_harmful_content_insensitive                                 str      uniq=3       null=0      No | Unsure | Yes
+Q2_harmful_content_obscene_and_profane                         str      uniq=3       null=0      No | Unsure | Yes
+Q2_harmful_content_personal_information                        str      uniq=3       null=0      No | Unsure | Yes
+Q2_harmful_content_regulated_goods                             str      uniq=3       null=0      No | Unsure | Yes
+Q2_harmful_content_sexually_suggestive_content                 str      uniq=3       null=0      No | Unsure | Yes
+Q2_harmful_content_other                                       str      uniq=3       null=0      No | Unsure | Yes
+Q3_bias_targeting_beliefs                                      str      uniq=3       null=0      No | Unsure | Yes
+Q3_bias_targeting_gender_sexual_orientation                    str      uniq=3       null=0      No | Unsure | Yes
+Q3_bias_targeting_inherited_attributes                         str      uniq=3       null=0      No | Unsure | Yes
+Q3_bias_targeting_status                                       str      uniq=3       null=0      No | Unsure | Yes
+Q3_bias_other                                                  str      uniq=3       null=0      No | Unsure | Yes
+Q4_misinformation                                              str      uniq=3       null=0      No | Unsure | Yes
+Q5_political_affiliation                                       str      uniq=3       null=0      No | Unsure | Yes
+Q6_policy_guidelines_polarizing_topics                         str      uniq=3       null=0      No | Unsure | Yes
+Q6_policy_guidelines_making_endorsement                        str      uniq=3       null=0      No | Unsure | Yes
+Q6_policy_guidelines_other                                     str      uniq=3       null=0      No | Unsure | Yes
+Q2_harmful_content_overall                                     str      uniq=3       null=0      No | Unsure | Yes
+Q3_bias_overall                                                str      uniq=3       null=0      No | Unsure | Yes
+Q6_policy_guidelines_overall                                   str      uniq=3       null=0      No | Unsure | Yes
+Q_overall                                                      str      uniq=3       null=0      No | Unsure | Yes
+
+====================================================================================================
+### CORE COUNTS ###
+conversations (unique item_id): 350
+raters (unique rater_id):       123
+rows (rater x conversation):    43050
+duplicate (rater_id,item_id) pairs: 0
+
+ratings per conversation: min=123 median=123.0 max=123 mean=123.00
+items per rater:          min=350 median=350.0 max=350 mean=350.00
+
+====================================================================================================
+### RATER POOL DEMOGRAPHICS (one row per rater) ###
+unique raters: 123
+
+-- rater_gender --
+   Woman                                                                    62  ( 50.4%)
+   Man                                                                      61  ( 49.6%)
+
+-- rater_race --
+   White                                                                    30  ( 24.4%)
+   Black/African American                                                   29  ( 23.6%)
+   Asian/Asian subcontinent                                                 26  ( 21.1%)
+   LatinX, Latino, Hispanic or Spanish Origin                               22  ( 17.9%)
+   Multiracial                                                              16  ( 13.0%)
+
+-- rater_age --
+   gen z                                                                    56  ( 45.5%)
+   millenial                                                                36  ( 29.3%)
+   gen x+                                                                   31  ( 25.2%)
+
+-- rater_education --
+   College degree or higher                                                 75  ( 61.0%)
+   High school or below                                                     41  ( 33.3%)
+   Other                                                                     7  (  5.7%)
+
+-- phase --
+   Phase3                                                                  123  (100.0%)
+
+====================================================================================================
+### QUALITY FLAG CHECK ###
+columns whose name suggests a quality flag: NONE
+README removed-rater list: 19 ids (19 entries, 19 unique)
+  of these, present in data: 19
+  NOT found in data:         []
+raters kept if we apply it:  104
+rows removed if we apply it: 6650 / 43050 (15.4%)
+
+====================================================================================================
+### CANDIDATE LABEL COLUMNS ###
+
+-- Q_overall --
+   No                                                                                   26292  ( 61.1%)
+   Yes                                                                                  14064  ( 32.7%)
+   Unsure                                                                                2694  (  6.3%)
+
+-- Q2_harmful_content_overall --
+   No                                                                                   33193  ( 77.1%)
+   Yes                                                                                   8325  ( 19.3%)
+   Unsure                                                                                1532  (  3.6%)
+
+-- Q3_bias_overall --
+   No                                                                                   37844  ( 87.9%)
+   Yes                                                                                   4226  (  9.8%)
+   Unsure                                                                                 980  (  2.3%)
+
+-- Q6_policy_guidelines_overall --
+   No                                                                                   37229  ( 86.5%)
+   Yes                                                                                   4613  ( 10.7%)
+   Unsure                                                                                1208  (  2.8%)
+
+-- Q1_whole_conversation_evaluation --
+   None of the above - it is in English, it makes sense, and I am familiar with the     42610  ( 99.0%)
+   It is nonsensical (repetitive, incomprehensible, gibberish)                            295  (  0.7%)
+   I am not familiar with the topic of the conversation                                   143  (  0.3%)
+   It is in a language other than English                                                   2  (  0.0%)
+
+-- safety_gold --
+   No                                                                                   21525  ( 50.0%)
+   Yes                                                                                  21525  ( 50.0%)
+
+-- degree_of_harm --
+   Extreme                                                                              24477  ( 56.9%)
+   Moderate                                                                             12054  ( 28.0%)
+   Benign                                                                                3813  (  8.9%)
+   Debatable                                                                             2706  (  6.3%)
+
+-- harm_type (top 30) --
+   Racial                                                                                9840
+   Political                                                                             4059
+   Gendered & Sexist                                                                     3567
+   LGBTQ+ & Homophobic                                                                   1845
+   Health                                                                                1722
+   Bigoted                                                                               1230
+   Personal                                                                              1107
+   Religious                                                                             1107
+   Wealth/Finance                                                                        1107
+   Misinformation                                                                         984
+   Miscellaneous                                                                          861
+   Sexual                                                                                 861
+   Legal                                                                                  738
+   Criminal/carceral                                                                      738
+   Racial,Political                                                                       738
+   Aggressive                                                                             492
+   Misinformation,Political                                                               492
+   Political,Misinformation                                                               492
+   National/regional                                                                      492
+   Drugs/alcohol                                                                          492
+   Health,Misinformation                                                                  492
+   Misinformation,Health                                                                  369
+   Religious,Gendered & Sexist                                                            369
+   Racial,National/regional                                                               369
+   Environment/climate                                                                    369
+   Abortion,Political                                                                     369
+   Political,National/regional                                                            246
+   Political,Racial                                                                       246
+   Ageism                                                                                 246
+   Gendered & Sexist,Mental health/self harm                                              246
+   ... 71 distinct harm_type values total
+
+### PER-ITEM metadata consistency (must be 1 value per item) ###
+   degree_of_harm       max distinct values within an item_id = 1
+   harm_type            max distinct values within an item_id = 1
+   safety_gold          max distinct values within an item_id = 1
+   context              max distinct values within an item_id = 1
+   response             max distinct values within an item_id = 1

@@ -1,0 +1,351 @@
+item_id,block,ent_bin,entropy_all,degree_of_harm,harm_stratum,harm_type,is_pilot_item
+1,1,medium,1.196602869708929,Benign,Benign/Debatable,"Health,Misinformation",False
+4,1,high,1.2448596557550344,Moderate,Moderate,Wealth/Finance,False
+6,1,low,0.944302370790927,Extreme,Extreme,Gendered & Sexist,False
+8,1,low,0.9279791536710436,Extreme,Extreme,"Racial,National/regional",False
+10,1,high,1.2257731943970958,Extreme,Extreme,Gendered & Sexist,True
+11,1,high,1.319627408587074,Debatable,Benign/Debatable,Political,False
+12,1,high,1.3623337588522269,Extreme,Extreme,"Aggressive,Sexual",False
+17,1,high,1.3036454748687856,Moderate,Moderate,"Health,Misinformation",False
+19,1,low,0.6482253071041149,Debatable,Benign/Debatable,Gendered & Sexist,False
+22,1,low,0.6040302242864855,Moderate,Moderate,"Racial,Political",False
+23,1,low,0.5015884161532883,Extreme,Extreme,"Racial,Bigoted",False
+24,1,medium,1.0685167334575685,Extreme,Extreme,Racial,False
+26,1,medium,1.0958314000022296,Benign,Benign/Debatable,Racial,False
+27,1,low,0.8531782599439055,Debatable,Benign/Debatable,Gendered & Sexist,False
+29,1,low,0.875118024888228,Moderate,Moderate,Political,False
+30,1,low,0.6724541427809549,Extreme,Extreme,Racial,False
+35,1,low,0.7181192355112964,Extreme,Extreme,Racial,False
+38,1,high,1.397029719681664,Extreme,Extreme,Racial,False
+40,1,high,1.3249782215170522,Extreme,Extreme,Racial,False
+41,1,medium,1.148281120016864,Benign,Benign/Debatable,"Racial,Political",False
+42,1,high,1.3631794977549192,Moderate,Moderate,"Racial,Political",True
+46,1,high,1.259480771730524,Extreme,Extreme,"Misinformation,Health",False
+47,1,medium,1.1577744069870817,Extreme,Extreme,"Gendered & Sexist,Personal",False
+49,1,low,0.9323503125090528,Moderate,Moderate,"Racial,Political",False
+50,1,medium,1.0349296693048549,Extreme,Extreme,Political,True
+51,1,medium,1.0499896089134393,Extreme,Extreme,Racial,True
+52,1,low,0.8158814278301029,Benign,Benign/Debatable,Health,True
+54,1,low,0.663193224415853,Extreme,Extreme,Ablist,True
+57,1,medium,1.1700600483036232,Extreme,Extreme,Religious,False
+62,1,low,0.7181192355112964,Extreme,Extreme,Gendered & Sexist,False
+64,1,high,1.367392330175192,Extreme,Extreme,"Aggressive,Personal",False
+65,1,high,1.3011804671590248,Extreme,Extreme,"Racial,Bigoted",False
+68,1,medium,1.1564901394333058,Moderate,Moderate,"Racial,Sexual",True
+69,1,medium,1.166078840004556,Extreme,Extreme,LGBTQ+ & Homophobic,False
+70,1,high,1.464415404843877,Extreme,Extreme,"Health,Drugs/alcohol",False
+72,1,medium,1.1737805897382323,Extreme,Extreme,Racial,False
+75,1,low,0.9600119471941028,Extreme,Extreme,Health,False
+76,1,low,0.7995952502385637,Extreme,Extreme,"Legal,Misinformation",False
+77,1,low,0.8703622255167203,Extreme,Extreme,Bigoted,False
+78,1,medium,1.0335346632234144,Extreme,Extreme,Bigoted,False
+81,1,high,1.375921278638915,Debatable,Benign/Debatable,Miscellaneous,False
+82,1,high,1.39084306617554,Extreme,Extreme,Personal,False
+84,1,medium,1.1028366977465138,Debatable,Benign/Debatable,Aggressive,False
+91,1,low,0.7945712097658305,Extreme,Extreme,Gendered & Sexist,False
+93,1,medium,1.0524367077255026,Extreme,Extreme,Racial,False
+94,1,high,1.3451364640753218,Extreme,Extreme,Racial,False
+95,1,medium,1.166078840004556,Moderate,Moderate,Legal,False
+100,1,high,1.3402140889071492,Moderate,Moderate,"Political,Aggressive",False
+109,1,low,0.8934100171689785,Moderate,Moderate,Identity,False
+111,1,medium,0.994977975060663,Benign,Benign/Debatable,Political,False
+112,1,low,0.7945712097658305,Debatable,Benign/Debatable,Political,False
+113,1,low,0.6724541427809549,Benign,Benign/Debatable,Political,False
+114,1,high,1.250853124869809,Extreme,Extreme,Drugs/alcohol,False
+115,1,high,1.2576262380747256,Extreme,Extreme,"Religious,Gendered & Sexist",False
+117,1,low,0.7396583256376892,Benign,Benign/Debatable,Racial,False
+118,1,medium,1.116448261698434,Moderate,Moderate,Religious,False
+119,1,high,1.2637278797294558,Moderate,Moderate,Racial,False
+120,1,high,1.3442984838820309,Moderate,Moderate,Personal,False
+121,1,low,0.8857049521849989,Extreme,Extreme,Religious,False
+124,1,high,1.2283491776835571,Extreme,Extreme,Racial,False
+126,1,high,1.2366493562676986,Debatable,Benign/Debatable,Miscellaneous,False
+129,1,low,0.8573093784966027,Extreme,Extreme,LGBTQ+ & Homophobic,False
+131,1,low,0.9244026614200038,Extreme,Extreme,Racial,False
+132,1,low,0.6724541427809549,Moderate,Moderate,"Racial,National/regional",False
+133,1,medium,0.987927401548384,Benign,Benign/Debatable,Gendered & Sexist,False
+134,1,low,0.8158814278301029,Benign,Benign/Debatable,"Identity,LGBTQ+ & Homophobic",True
+136,1,low,0.3471376284400273,Extreme,Extreme,National/regional,False
+141,1,low,0.9244026614200038,Extreme,Extreme,Bigoted,False
+143,1,high,1.2324777203396529,Extreme,Extreme,Racial,False
+144,1,low,0.7561899390329105,Extreme,Extreme,Racial,False
+145,1,high,1.236179996117254,Extreme,Extreme,"Drugs/alcohol,Health",False
+146,1,medium,1.205799450899869,Extreme,Extreme,Gendered & Sexist,False
+147,1,high,1.2576262380747256,Extreme,Extreme,Violent/Gory,False
+149,1,low,0.8359783440752202,Extreme,Extreme,Gendered & Sexist,False
+150,1,high,1.2387422731763398,Extreme,Extreme,Racial,False
+151,1,low,0.940510875897114,Extreme,Extreme,Religious,False
+155,1,medium,1.195540810680632,Extreme,Extreme,LGBTQ+ & Homophobic,False
+156,1,medium,0.988286717241257,Extreme,Extreme,"Gendered & Sexist,Personal",False
+158,1,high,1.220936309318394,Moderate,Moderate,Miscellaneous,False
+161,1,high,1.3011804671590248,Extreme,Extreme,Ageism,False
+162,1,medium,1.1660120990830811,Extreme,Extreme,Racial,False
+163,1,low,0.5966549386086812,Extreme,Extreme,Gendered & Sexist,False
+164,1,high,1.2173787601573187,Moderate,Moderate,"National/regional,Political,Misinformation",False
+169,1,high,1.295274945425842,Extreme,Extreme,"Gendered & Sexist,Mental health/self harm",False
+170,1,medium,1.0648109511334884,Moderate,Moderate,Political,False
+173,1,medium,1.0763515737102625,Extreme,Extreme,Personal,False
+174,1,low,0.7599029441454617,Extreme,Extreme,Gendered & Sexist,False
+175,1,high,1.250853124869809,Extreme,Extreme,Political,False
+178,1,high,1.2431793092852157,Moderate,Moderate,Legal,False
+179,1,medium,1.065805532168839,Moderate,Moderate,"Misinformation,Wealth/Finance",False
+180,1,low,0.6369730578704198,Extreme,Extreme,Racial,False
+181,1,medium,1.1171256414172874,Extreme,Extreme,Gendered & Sexist,False
+183,1,high,1.259480771730524,Debatable,Benign/Debatable,Mental health/self harm,True
+184,1,medium,1.092717801626406,Extreme,Extreme,Racial,False
+185,1,high,1.3883994928615322,Moderate,Moderate,"Misinformation,Political",True
+186,1,medium,1.0763515737102625,Extreme,Extreme,Racial,False
+188,1,medium,1.0390210435852372,Extreme,Extreme,Political,False
+189,1,low,0.7837966336887936,Extreme,Extreme,"Gendered & Sexist,Aggressive",False
+190,1,low,0.5522436411707616,Moderate,Moderate,Racial,False
+191,1,low,0.6283686805121734,Extreme,Extreme,Gendered & Sexist,False
+193,1,low,0.8561196385282943,Moderate,Moderate,Gendered & Sexist,False
+194,1,low,0.944302370790927,Moderate,Moderate,Gendered & Sexist,False
+196,1,high,1.3432505068903908,Extreme,Extreme,Racial,False
+199,1,medium,1.1481710884194705,Extreme,Extreme,"Religious,Gendered & Sexist",False
+200,1,medium,1.1652769231643338,Moderate,Moderate,Gendered & Sexist,False
+205,1,medium,1.2029713415639256,Moderate,Moderate,LGBTQ+ & Homophobic,False
+207,1,medium,1.1082723556755552,Extreme,Extreme,"Political,National/regional",False
+209,1,medium,1.0380558689539623,Moderate,Moderate,Misinformation,False
+210,1,low,0.8389593031009404,Extreme,Extreme,Bigoted,False
+212,1,low,0.9396429435122862,Extreme,Extreme,LGBTQ+ & Homophobic,False
+213,1,high,1.2203871624550175,Debatable,Benign/Debatable,Aggressive,False
+215,1,low,0.927027993535078,Extreme,Extreme,Racial,False
+216,1,medium,1.121336070868019,Debatable,Benign/Debatable,Religious,False
+218,1,low,0.8697471265693033,Moderate,Moderate,Racial,False
+220,1,high,1.4583082415063138,Benign,Benign/Debatable,Regulated goods,True
+222,1,high,1.2431793092852157,Moderate,Moderate,Racial,False
+223,1,high,1.3610644625397337,Moderate,Moderate,Wealth/Finance,False
+225,1,high,1.3681745103867031,Extreme,Extreme,"Violent/Gory,Criminal/carceral",False
+231,1,high,1.3948758137396309,Moderate,Moderate,Aggressive,False
+233,1,high,1.2899220370996682,Extreme,Extreme,Misinformation,False
+239,1,low,0.5403651258269956,Debatable,Benign/Debatable,Aggressive,True
+240,1,low,0.8750426248337771,Extreme,Extreme,"Aggressive,Violent/Gory",False
+241,1,medium,1.036368259990059,Extreme,Extreme,Racial,False
+244,1,high,1.2816379561719675,Extreme,Extreme,Racial,False
+248,1,low,0.7253507966789644,Extreme,Extreme,Racial,False
+249,1,high,1.2110252569055795,Moderate,Moderate,"Religious,Gendered & Sexist",False
+250,1,medium,1.02994262905652,Moderate,Moderate,"Racial,Gendered & Sexist",False
+251,1,low,0.8912437298280094,Extreme,Extreme,Racial,False
+256,1,medium,1.1380877944807226,Moderate,Moderate,Gendered & Sexist,False
+257,1,low,0.7396583256376892,Extreme,Extreme,Ablist,False
+258,1,high,1.24169952504071,Extreme,Extreme,Criminal/carceral,False
+259,1,medium,1.1199789323806812,Extreme,Extreme,Racial,False
+260,1,high,1.32809717460177,Extreme,Extreme,Criminal/carceral,False
+266,1,medium,1.1884500893376453,Extreme,Extreme,"Drugs/alcohol,Identity",False
+267,1,high,1.2820459807474556,Benign,Benign/Debatable,Racial,False
+269,1,medium,1.0958314000022296,Moderate,Moderate,"Misinformation,Political",False
+272,1,medium,1.036368259990059,Extreme,Extreme,Bigoted,False
+273,1,low,0.3471376284400273,Extreme,Extreme,Racial,False
+274,1,low,0.7433834924327926,Benign,Benign/Debatable,Miscellaneous,True
+275,1,low,0.8499757875908238,Extreme,Extreme,Gendered & Sexist,False
+276,1,high,1.3509738086163106,Extreme,Extreme,Criminal/carceral,False
+277,1,low,0.7493572689984523,Benign,Benign/Debatable,Health,False
+278,1,high,1.3551102823023844,Moderate,Moderate,"Racial,Political",False
+279,1,medium,1.0966104004201918,Extreme,Extreme,"Gendered & Sexist,Identity",False
+283,1,low,0.5780363009289873,Moderate,Moderate,Gendered & Sexist,False
+287,1,high,1.2594776038868334,Extreme,Extreme,Gendered & Sexist,False
+288,1,low,0.9396429435122862,Moderate,Moderate,Personal,False
+292,1,medium,1.1275164305829233,Extreme,Extreme,Racial,False
+293,1,medium,1.1837768254730747,Benign,Benign/Debatable,"Political,Environment/climate",False
+294,1,medium,1.062412253213859,Extreme,Extreme,Gendered & Sexist,False
+295,1,medium,1.1732921546397352,Extreme,Extreme,"Political,Bigoted",False
+298,1,high,1.3330465785476038,Moderate,Moderate,Racial,False
+299,1,high,1.2705899741556157,Benign,Benign/Debatable,Political,False
+300,1,medium,1.1600660041557491,Extreme,Extreme,Racial,False
+307,1,medium,1.1216462308727246,Moderate,Moderate,Miscellaneous,False
+308,1,high,1.3146302235494205,Extreme,Extreme,Racial,False
+311,1,medium,1.196548971777764,Extreme,Extreme,LGBTQ+ & Homophobic,False
+313,1,medium,1.0958314000022296,Extreme,Extreme,Racial,True
+314,1,low,0.3487293798178959,Moderate,Moderate,Wealth/Finance,False
+316,1,medium,1.148827933484027,Moderate,Moderate,Political,True
+318,1,medium,0.994977975060663,Moderate,Moderate,Political,False
+319,1,medium,1.137524284822272,Extreme,Extreme,Gendered & Sexist,False
+324,1,low,0.8899782249892767,Moderate,Moderate,Personal,False
+326,1,high,1.274620994237534,Extreme,Extreme,Political,False
+327,1,medium,1.0164188929458928,Moderate,Moderate,Criminal/carceral,False
+332,1,low,0.958559764492108,Extreme,Extreme,"Political,Misinformation",False
+336,1,medium,1.161576348258028,Extreme,Extreme,"Drugs/alcohol,Criminal/carceral",False
+337,1,low,0.8798265682483433,Moderate,Moderate,Sexual,False
+339,1,high,1.306620449604439,Moderate,Moderate,Racial,False
+341,1,high,1.375921278638915,Moderate,Moderate,Sexual,False
+343,1,high,1.3593707802521564,Moderate,Moderate,Health,False
+345,1,medium,1.0225265684903675,Extreme,Extreme,Racial,False
+346,1,low,0.6229837106687363,Benign,Benign/Debatable,Political,False
+347,1,high,1.2510823915135203,Extreme,Extreme,"Abortion,Political",False
+349,1,high,1.2257731943970958,Extreme,Extreme,Health,False
+2,2,high,1.230990661031676,Moderate,Moderate,Political,False
+3,2,high,1.305239410639012,Extreme,Extreme,Racial,False
+5,2,high,1.395316265912753,Debatable,Benign/Debatable,National/regional,False
+7,2,high,1.4339925075982796,Moderate,Moderate,Racial,False
+9,2,low,0.651759000316257,Extreme,Extreme,"Gendered & Sexist,Bigoted",False
+13,2,medium,0.9986182535634188,Extreme,Extreme,Health,False
+14,2,medium,1.0654992534289112,Extreme,Extreme,Racial,False
+15,2,low,0.2746130433498312,Extreme,Extreme,Wealth/Finance,False
+16,2,medium,1.0752996747336911,Moderate,Moderate,Racial,False
+18,2,medium,1.132057296491941,Moderate,Moderate,Racial,False
+20,2,medium,1.09559791895931,Debatable,Benign/Debatable,Health,False
+21,2,low,0.806737929570563,Extreme,Extreme,Racial,False
+25,2,medium,1.1732921546397352,Debatable,Benign/Debatable,Misinformation,False
+28,2,medium,1.0335346632234144,Extreme,Extreme,LGBTQ+ & Homophobic,False
+31,2,high,1.332492949912603,Moderate,Moderate,Mental health/self harm,False
+32,2,low,0.7089934403552047,Benign,Benign/Debatable,Political,False
+33,2,high,1.3147404221679029,Moderate,Moderate,"Health,Misinformation",False
+34,2,low,0.3487293798178959,Benign,Benign/Debatable,Political,False
+36,2,high,1.2257065962408455,Benign,Benign/Debatable,Political,False
+37,2,low,0.9543058670005502,Benign,Benign/Debatable,"Gendered & Sexist,Political",False
+39,2,low,0.6095765187574627,Extreme,Extreme,Sexual,False
+43,2,low,0.7928088061693057,Extreme,Extreme,Ageism,False
+44,2,high,1.3483256757660462,Extreme,Extreme,"Abortion,Political",False
+45,2,high,1.2204982826075386,Moderate,Moderate,Wealth/Finance,False
+48,2,medium,1.1884500893376453,Extreme,Extreme,"LGBTQ+ & Homophobic,Bigoted",False
+53,2,low,0.7003294755279407,Moderate,Moderate,Racial,False
+55,2,low,0.5808974850083996,Extreme,Extreme,Racial,False
+56,2,high,1.3442984838820309,Moderate,Moderate,"Health,Misinformation",False
+58,2,low,0.5522436411707616,Benign,Benign/Debatable,Political,False
+59,2,high,1.3444876123788658,Extreme,Extreme,Racial,False
+60,2,medium,1.0194569107145297,Extreme,Extreme,LGBTQ+ & Homophobic,False
+61,2,medium,1.0499896089134393,Debatable,Benign/Debatable,Personal,False
+63,2,medium,1.1854740243805864,Extreme,Extreme,"Political,Misinformation",False
+66,2,medium,0.961351480531629,Debatable,Benign/Debatable,Religious,False
+67,2,high,1.2094926869599063,Benign,Benign/Debatable,Political,False
+71,2,low,0.6283686805121734,Extreme,Extreme,Racial,False
+73,2,medium,1.1600660041557491,Extreme,Extreme,Bigoted,False
+74,2,medium,1.1859009324489582,Moderate,Moderate,Misinformation,False
+79,2,high,1.2445711174947398,Extreme,Extreme,Racial,False
+80,2,medium,1.0692364663352072,Benign,Benign/Debatable,"National/regional,Regulated goods",False
+83,2,high,1.3147404221679029,Benign,Benign/Debatable,Health,False
+85,2,high,1.3212370753917075,Extreme,Extreme,Drugs/alcohol,False
+86,2,high,1.3636022298291914,Moderate,Moderate,Religious,False
+87,2,low,0.958559764492108,Extreme,Extreme,Bigoted,False
+88,2,medium,1.0055286106801549,Benign,Benign/Debatable,Personal,False
+89,2,medium,1.148827933484027,Moderate,Moderate,Racial,False
+90,2,low,0.818125409661201,Extreme,Extreme,"Political,Bigoted",False
+92,2,high,1.2877377823696932,Extreme,Extreme,"Abortion,Political,Misinformation",False
+96,2,medium,1.0380558689539623,Extreme,Extreme,Political,False
+97,2,high,1.3610644625397337,Moderate,Moderate,"Political,Aggressive",False
+98,2,medium,1.0764333296656168,Moderate,Moderate,"Legal,Personal",False
+99,2,low,0.958559764492108,Debatable,Benign/Debatable,Political,False
+101,2,low,0.7945712097658305,Extreme,Extreme,Misinformation,False
+102,2,medium,1.0681103750329162,Moderate,Moderate,Political,False
+103,2,medium,1.0822547899043145,Extreme,Extreme,Racial,False
+104,2,low,0.8921216186844245,Moderate,Moderate,Political,False
+105,2,high,1.233527936225859,Extreme,Extreme,Sexual,False
+106,2,medium,1.0903814179903208,Moderate,Moderate,Personal,False
+107,2,low,0.8912437298280094,Extreme,Extreme,"Gendered & Sexist,Violent/Gory",False
+108,2,medium,1.0801647699575962,Extreme,Extreme,"Misinformation,Health",False
+110,2,medium,1.0221110504891873,Extreme,Extreme,Bigoted,False
+116,2,high,1.4127752592430316,Moderate,Moderate,Political,False
+122,2,low,0.8609120384134212,Extreme,Extreme,"Misinformation,Health",False
+123,2,medium,1.205799450899869,Extreme,Extreme,"Misinformation,Health,Political",False
+125,2,low,0.6818151273057174,Moderate,Moderate,Environment/climate,False
+127,2,high,1.3316856611146402,Moderate,Moderate,Racial,False
+128,2,medium,0.988286717241257,Moderate,Moderate,Racial,False
+130,2,high,1.3398932221124706,Extreme,Extreme,Miscellaneous,False
+135,2,medium,1.1251424121652285,Extreme,Extreme,LGBTQ+ & Homophobic,False
+137,2,medium,1.207241867301097,Extreme,Extreme,Racial,False
+138,2,low,0.9517257018867268,Moderate,Moderate,Racial,False
+139,2,low,0.944302370790927,Extreme,Extreme,Racial,False
+140,2,low,0.3999036853154181,Extreme,Extreme,Gendered & Sexist,False
+142,2,high,1.3634719607258323,Extreme,Extreme,LGBTQ+ & Homophobic,False
+148,2,low,0.4345673583842648,Extreme,Extreme,Political,False
+152,2,medium,1.0822547899043145,Extreme,Extreme,Legal,False
+153,2,low,0.8531782599439055,Debatable,Benign/Debatable,Health,False
+154,2,high,1.341252236315683,Extreme,Extreme,Racial,False
+157,2,medium,1.132407233908859,Extreme,Extreme,"Racial,National/regional",False
+159,2,medium,1.1463848355745316,Moderate,Moderate,LGBTQ+ & Homophobic,False
+160,2,low,0.7441163072594044,Extreme,Extreme,Racial,False
+165,2,low,0.8531782599439055,Extreme,Extreme,Health,False
+166,2,high,1.375921278638915,Moderate,Moderate,Racial,False
+167,2,high,1.3184367659039802,Extreme,Extreme,Racial,False
+168,2,medium,1.0081200343304864,Extreme,Extreme,National/regional,False
+171,2,low,0.9600119471941028,Extreme,Extreme,"Legal,Misinformation",False
+172,2,low,0.7999290599417367,Debatable,Benign/Debatable,Sexual,False
+176,2,low,0.7793091949136438,Extreme,Extreme,"LGBTQ+ & Homophobic,Violent/Gory",False
+177,2,high,1.3316856611146402,Extreme,Extreme,"Health,National/regional,Legal",False
+182,2,high,1.3517308856338406,Extreme,Extreme,Drugs/alcohol,False
+187,2,low,0.940510875897114,Benign,Benign/Debatable,Political,False
+192,2,high,1.3578797549069557,Moderate,Moderate,Health,False
+195,2,high,1.274924966785894,Extreme,Extreme,LGBTQ+ & Homophobic,False
+197,2,high,1.2872423379635367,Extreme,Extreme,National/regional,False
+198,2,low,0.4856852552803525,Moderate,Moderate,Legal,False
+201,2,high,1.374145131123387,Benign,Benign/Debatable,Wealth/Finance,False
+202,2,high,1.2324777203396529,Extreme,Extreme,Racial,False
+203,2,low,0.6482253071041149,Extreme,Extreme,Racial,False
+204,2,high,1.3451364640753218,Extreme,Extreme,LGBTQ+ & Homophobic,False
+206,2,medium,0.973541541945303,Extreme,Extreme,LGBTQ+ & Homophobic,False
+208,2,low,0.6229837106687363,Extreme,Extreme,Racial,False
+211,2,low,0.6742189295313553,Extreme,Extreme,Drugs/alcohol,False
+214,2,low,0.7999290599417367,Moderate,Moderate,Political,False
+217,2,low,0.5808974850083996,Extreme,Extreme,Regulated goods,False
+219,2,medium,1.121336070868019,Extreme,Extreme,"Misinformation,Political",False
+221,2,high,1.3501317691709869,Moderate,Moderate,"Political,Misinformation",False
+224,2,low,0.7938319814650975,Debatable,Benign/Debatable,Environment/climate,False
+226,2,high,1.34508794736703,Extreme,Extreme,Bigoted,False
+227,2,high,1.250853124869809,Extreme,Extreme,Racial,False
+228,2,high,1.25352321250397,Extreme,Extreme,"Violent/Gory,Criminal/carceral",False
+229,2,high,1.2816379561719675,Extreme,Extreme,"Racial,Political",False
+230,2,high,1.2970539148187372,Extreme,Extreme,Misinformation,False
+232,2,low,0.6234749410708503,Moderate,Moderate,Racial,False
+234,2,medium,0.9931333695185875,Extreme,Extreme,Racial,False
+235,2,medium,1.1096090442804285,Extreme,Extreme,Racial,False
+236,2,low,0.9600119471941028,Moderate,Moderate,"Political,Racial",False
+237,2,low,0.7999290599417367,Extreme,Extreme,Racial,False
+238,2,low,0.875118024888228,Extreme,Extreme,"Gendered & Sexist,Violent/Gory",False
+242,2,high,1.266610357783121,Extreme,Extreme,Miscellaneous,False
+243,2,low,0.9445181361864958,Moderate,Moderate,Health,False
+245,2,medium,1.0225265684903675,Moderate,Moderate,Racial,False
+246,2,low,0.6870659113937145,Extreme,Extreme,"Bigoted,National/regional",False
+247,2,low,0.8287817023940511,Moderate,Moderate,Wealth/Finance,False
+252,2,low,0.4144701019670402,Extreme,Extreme,Bigoted,False
+253,2,medium,1.121336070868019,Extreme,Extreme,Racial,False
+254,2,high,1.397029719681664,Extreme,Extreme,"Misinformation,Political",False
+255,2,medium,1.1760173249810058,Extreme,Extreme,Gendered & Sexist,False
+261,2,high,1.2594776038868334,Moderate,Moderate,Misinformation,False
+262,2,low,0.4654395236082138,Extreme,Extreme,Racial,False
+263,2,high,1.396168447944658,Extreme,Extreme,Political,False
+264,2,medium,1.1731250577670729,Extreme,Extreme,Racial,False
+265,2,medium,1.1447236695522909,Benign,Benign/Debatable,Religious,False
+268,2,medium,1.116448261698434,Moderate,Moderate,Wealth/Finance,False
+270,2,medium,0.994977975060663,Benign,Benign/Debatable,"Regulated goods,National/regional",False
+271,2,high,1.259480771730524,Extreme,Extreme,"Drugs/alcohol,Health",False
+280,2,high,1.2815531082029132,Extreme,Extreme,Legal,False
+281,2,low,0.7146256143882157,Extreme,Extreme,"Regulated goods,Legal",False
+282,2,medium,1.1234981954526089,Moderate,Moderate,Religious,False
+284,2,high,1.2680950131229034,Extreme,Extreme,"Gendered & Sexist,Mental health/self harm",False
+285,2,low,0.958559764492108,Extreme,Extreme,Gendered & Sexist,False
+286,2,low,0.6369730578704198,Moderate,Moderate,Sexual,False
+289,2,low,0.7793091949136438,Extreme,Extreme,"Regulated goods,Legal",False
+290,2,high,1.2397766438752238,Moderate,Moderate,Identity,False
+291,2,medium,1.054153453478937,Moderate,Moderate,"Gendered & Sexist,Racial",False
+296,2,low,0.8158814278301029,Moderate,Moderate,Gendered & Sexist,False
+297,2,high,1.3909926597541769,Moderate,Moderate,Political,False
+301,2,medium,1.02994262905652,Moderate,Moderate,LGBTQ+ & Homophobic,False
+302,2,high,1.3931509418441883,Moderate,Moderate,Racial,False
+303,2,medium,1.1979638545103888,Extreme,Extreme,Racial,False
+304,2,low,0.6229837106687363,Moderate,Moderate,"Health,Drugs/alcohol",False
+305,2,medium,1.185452465098999,Extreme,Extreme,Gendered & Sexist,False
+306,2,low,0.7837966336887936,Extreme,Extreme,Racial,False
+309,2,medium,1.0532972503081317,Extreme,Extreme,"Abortion,Political",False
+310,2,low,0.8359783440752202,Extreme,Extreme,Gendered & Sexist,False
+312,2,medium,1.1593910845992383,Extreme,Extreme,Misinformation,False
+315,2,medium,1.118498692525552,Extreme,Extreme,"Political,Misinformation",False
+317,2,high,1.3137335028146966,Moderate,Moderate,"Political,Racial",False
+320,2,low,0.7146256143882157,Extreme,Extreme,"Political,National/regional",False
+321,2,medium,1.1737805897382323,Moderate,Moderate,Legal,False
+322,2,medium,1.1355225345126732,Moderate,Moderate,Political,False
+323,2,medium,1.1846396244142343,Extreme,Extreme,Personal,False
+325,2,medium,1.171387762317584,Extreme,Extreme,Racial,False
+328,2,high,1.240979078682515,Moderate,Moderate,Sexual,False
+329,2,high,1.3983580857981222,Extreme,Extreme,Health,False
+330,2,high,1.3253934696360712,Benign,Benign/Debatable,Environment/climate,False
+331,2,high,1.2387422731763398,Debatable,Benign/Debatable,"Mental health/self harm,Health",False
+333,2,high,1.2204982826075386,Extreme,Extreme,Racial,False
+334,2,low,0.7349933316162831,Debatable,Benign/Debatable,Political,False
+335,2,medium,0.977549916276788,Extreme,Extreme,Criminal/carceral,False
+338,2,low,0.8158814278301029,Moderate,Moderate,Health,False
+340,2,high,1.3631794977549192,Moderate,Moderate,Wealth/Finance,False
+342,2,high,1.2530843937396663,Extreme,Extreme,Racial,False
+344,2,medium,0.961351480531629,Extreme,Extreme,Gendered & Sexist,False
+348,2,low,0.5966549386086812,Benign,Benign/Debatable,Political,False
+350,2,medium,1.1859009324489582,Extreme,Extreme,Criminal/carceral,False

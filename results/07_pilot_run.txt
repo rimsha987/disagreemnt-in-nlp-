@@ -1,0 +1,40 @@
+============================================================================================
+PHASE 2 RUNNER - mode=pilot  provider=groq  model=qwen/qwen3.8-27b
+============================================================================================
+   planned calls      60
+   already complete   0
+   remaining          60
+   existing shards    0
+
+   configured limits  30 RPM / 1000 RPD / 8000 TPM / 2000000 TPD
+   limits verified    True
+   limits source      console.groq.com/docs/rate-limits, fetched 2026-08-26
+
+   PROJECTION for the 60 remaining calls
+      mean estimated input tokens/call   1120
+      throughput ceiling                 7.1 calls/min
+      daily ceiling                      1,000 calls/day   (RPD-bound)
+      calendar days needed               0.1
+      in-day wall-clock at the ceiling   0.1 hours of actual calling
+
+   writing to raw_responses/phase2/pilot_groq_20260827T120802.jsonl
+   this session will attempt up to 60 calls
+   Ctrl-C once to stop cleanly and resume later
+
+   provider quota headers on the first call:
+      x-ratelimit-limit-requests       1000
+      x-ratelimit-remaining-requests   998
+      x-ratelimit-reset-requests       2m52.8s
+      x-ratelimit-limit-tokens         8000
+      x-ratelimit-remaining-tokens     7083
+      x-ratelimit-reset-tokens         6.877s
+   (x-ratelimit-reset-requests is the observed daily reset; Groq does not document it)
+   25/60  ok=25 err=0  8.3 calls/min  elapsed 3.0m
+   50/60  ok=50 err=0  8.3 calls/min  elapsed 6.0m
+   60/60  ok=60 err=0  8.4 calls/min  elapsed 7.1m
+
+   session done: 60 ok, 0 errors, 7.1 minutes
+   overall progress: 60/60 (100.0%)
+
+   complete. Now run:
+      .venv/Scripts/python.exe src/08_pilot_report.py

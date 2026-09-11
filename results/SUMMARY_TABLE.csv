@@ -1,0 +1,98 @@
+phase,quantity,value,n,source,note
+0,Conversations (items),350,350,data/dices-dataset/350/diverse_safety_adversarial_dialog_350.csv,
+0,Raters,123,123,data/dices-dataset/350/diverse_safety_adversarial_dialog_350.csv,
+0,Ratings (fully crossed),"43,050",43050,data/dices-dataset/350/diverse_safety_adversarial_dialog_350.csv,"123 x 350, zero missing"
+0,Ratings per conversation,123 (min=median=max),350,data/dices-dataset/350/diverse_safety_adversarial_dialog_350.csv,
+0,Q_overall: No / Yes / Unsure,0.611 / 0.327 / 0.063,43050,data/dices-dataset/350/diverse_safety_adversarial_dialog_350.csv,
+0,safety_gold balance,175 Yes / 175 No,350,data/dices-dataset/350/diverse_safety_adversarial_dialog_350.csv,
+0,degree_of_harm,Extreme 199 / Moderate 98 / Benign 31 / Debatable 22,350,data/dices-dataset/350/diverse_safety_adversarial_dialog_350.csv,
+0,Quality-flag column exists,NO - 19 rater IDs hardcoded in dataset README,,data/dices-dataset/350/README.md,see FINDINGS 0
+1,Removal rate: Woman,8.1%,62,results/02_removal_by_group.csv,"5/62, 95% CI [2.7, 17.8]"
+1,Removal rate: Man,23.0%,61,results/02_removal_by_group.csv,"14/61, 95% CI [13.2, 35.5]"
+1,Removal rate: Asian,19.2%,26,results/02_removal_by_group.csv,"5/26, 95% CI [6.6, 39.4]"
+1,Removal rate: Black,20.7%,29,results/02_removal_by_group.csv,"6/29, 95% CI [8.0, 39.7]"
+1,Removal rate: Latine/x,0.0%,22,results/02_removal_by_group.csv,"0/22, 95% CI [0.0, 15.4]"
+1,Removal rate: Multiracial,18.8%,16,results/02_removal_by_group.csv,"3/16, 95% CI [4.0, 45.6]"
+1,Removal rate: White,16.7%,30,results/02_removal_by_group.csv,"5/30, 95% CI [5.6, 34.7]"
+1,Removal rate: gen z,12.5%,56,results/02_removal_by_group.csv,"7/56, 95% CI [5.2, 24.1]"
+1,Removal rate: millennial,22.2%,36,results/02_removal_by_group.csv,"8/36, 95% CI [10.1, 39.2]"
+1,Removal rate: gen x+,12.9%,31,results/02_removal_by_group.csv,"4/31, 95% CI [3.6, 29.8]"
+1,Removal rate: College+,14.7%,75,results/02_removal_by_group.csv,"11/75, 95% CI [7.6, 24.7]"
+1,Removal rate: HS or below,19.5%,41,results/02_removal_by_group.csv,"8/41, 95% CI [8.8, 34.9]"
+1,Removal rate: Other,0.0%,7,results/02_removal_by_group.csv,"0/7, 95% CI [0.0, 41.0]"
+1,Removal rate: all raters,15.4%,123,results/02_removal_by_group.csv,"19/123, 95% CI [9.6, 23.1]"
+1,Omnibus exact p: Gender,0.0262,123,results/02_removal_tests.csv,Freeman-Halton; Cramer's V 0.206
+1,Omnibus exact p: Race/ethnicity,0.1667,123,results/02_removal_tests.csv,Freeman-Halton; Cramer's V 0.203
+1,Omnibus exact p: Age group,0.4523,123,results/02_removal_tests.csv,Freeman-Halton; Cramer's V 0.121
+1,Omnibus exact p: Education,0.5907,123,results/02_removal_tests.csv,Freeman-Halton; Cramer's V 0.122
+1,Fisher OR: Woman removed,0.30,62,results/02_removal_tests.csv,"95% CI [0.08, 0.95], p=0.0262"
+1,Fisher OR: Man removed,3.36,61,results/02_removal_tests.csv,"95% CI [1.05, 12.83], p=0.0262"
+1,"Label shift, mean TVD (primary)",0.01556,350,results/03_item_jsd.csv,"median 0.01403, max 0.04339"
+1,"Label shift, mean JSD (secondary)",0.00055,350,results/03_item_jsd.csv,"median 0.00035, max 0.00871"
+1,Majority-label flips,9/350,350,results/03_item_jsd.csv,tie-aware; 7 under first-label tie-breaking
+1,Mean change in P(Yes),+0.00452,350,results/03_item_jsd.csv,pool 0.32669 -> 0.33121
+1,TVD by disagreement tertile: low,0.01281,118,results/03_entropy_bins.csv,flips 0
+1,TVD by disagreement tertile: medium,0.01580,115,results/03_entropy_bins.csv,flips 0
+1,TVD by disagreement tertile: high,0.01810,117,results/03_entropy_bins.csv,flips 9
+1,Permutation test: mean d_P(Yes) (signed),+0.00452,10000,results/03b_direction_tests.csv,"null +0.00000+/-0.00766, z=+0.59, p=0.5635"
+1,Permutation test: mean |d_P(Yes)|,+0.01187,10000,results/03b_direction_tests.csv,"null +0.01296+/-0.00214, z=-0.51, p=0.5577"
+1,Permutation test: majority flips,+9.00000,10000,results/03b_direction_tests.csv,"null +7.39630+/-2.26430, z=+0.71, p=0.4764"
+1,Mean JSD vs random-removal null,0.000550 vs 0.000575,2000,results/03_labels_report.txt,"p_perm=0.4495, z=-0.16"
+1,Removed-rater profile: median answer time (ms),41118.0000 vs 123360.2500,19 vs 104,results/04_profile_tests.csv,"MWU p=0.0013, CLES=0.267"
+1,Removed-rater profile: modal-label share,0.7143 vs 0.6343,19 vs 104,results/04_profile_tests.csv,"MWU p=0.0194, CLES=0.669"
+1,"Removed-rater profile: label entropy (bits, max 1.585)",0.8915 vs 1.0467,19 vs 104,results/04_profile_tests.csv,"MWU p=0.0189, CLES=0.330"
+1,Removed-rater profile: share of rows with all 20 sub-answers identical,0.6914 vs 0.6143,19 vs 104,results/04_profile_tests.csv,"MWU p=0.2922, CLES=0.576"
+1,Removed-rater profile: agreement with pool majority,0.7657 vs 0.7271,19 vs 104,results/04_profile_tests.csv,"MWU p=0.2986, CLES=0.575"
+1,Removed-rater profile: Q1 non-comprehension rate,0.0029 vs 0.0029,19 vs 104,results/04_profile_tests.csv,"MWU p=0.5510, CLES=0.459"
+1,Removed-rater profile: share of ratings 'Yes',0.2286 vs 0.3200,19 vs 104,results/04_profile_tests.csv,"MWU p=0.1324, CLES=0.391"
+1,Removed raters extreme on >=1 signal,18/19,19,results/04_profile_report.txt,descriptive only
+2,Cell-scheme spread: race3 x gender2 (White/Black/Asian),0.20315,85,results/05_cell_scheme_scores.csv,"null 0.16559, excess +0.03756, z=+3.61"
+2,Cell-scheme spread: gender2 x age3,0.16156,123,results/05_cell_scheme_scores.csv,"null 0.13959, excess +0.02197, z=+2.78"
+2,Cell-scheme spread: gender2,0.09170,123,results/05_cell_scheme_scores.csv,"null 0.07794, excess +0.01377, z=+1.47"
+2,Cell-scheme spread: race3 (White/Black/Asian only),0.12887,85,results/05_cell_scheme_scores.csv,"null 0.11503, excess +0.01384, z=+1.23"
+2,Cell-scheme spread: race5 (all race groups),0.13835,123,results/05_cell_scheme_scores.csv,"null 0.12749, excess +0.01086, z=+1.21"
+2,Cell-scheme spread: age3,0.09603,123,results/05_cell_scheme_scores.csv,"null 0.09949, excess -0.00346, z=-0.37"
+2,Chosen cells,"race3 x gender2 (6 cells, 85 raters)",85,results/05_chosen_cells.csv,"z=+3.61, highest of 6 candidate schemes"
+2,Model requested,qwen/qwen3.8-27b,,src/phase2_config.py,
+2,Model version (API-reported),qwen/qwen3.8-27b,,results/08_pilot_report.txt,no dated snapshot; not pinnable
+2,Temperature / max output tokens,1.0 / 8,,src/phase2_config.py,
+2,Pilot calls,60/60 returned,60,results/08_pilot_report.txt,
+2,Pilot refusal rate,0.0%,60,results/08_pilot_report.txt,finish_reason=stop on all 60
+2,Pilot parse rate,100.0%,60,results/08_pilot_report.txt,
+2,Measured input tokens/call,922.9 mean,60,results/08_pilot_report.txt,"min 826, max 1195"
+2,Groq quota mechanism,"continuous refill, 1 request / 86.4 s",,results/08_pilot_report.txt,no daily reset event; 86400/1000
+2/3,"Spread: Humans, all 123",0.20315,"350 items, 6 cells, full groups",results/13_headline_numbers.csv,full precision
+2/3,"Spread: Humans, 104 kept",0.20900,"350 items, 6 cells, full groups",results/13_headline_numbers.csv,full precision
+2/3,"Spread: Humans, full groups",0.40061,"15 items, 2 groups",results/13_headline_numbers.csv,reference
+2/3,"Spread: Humans, 1 rater/group",0.52430,"15 items, 2 groups, n=1",results/13_headline_numbers.csv,"like-for-like; 95% [0.2667, 0.7333]"
+2/3,Spread: LLM persona v1,0.13333,"15 items, 2 groups, n=1",results/13_headline_numbers.csv,P(noise>=obs)=0.60
+2/3,Spread: LLM persona v2,0.20000,"15 items, 2 groups, n=1",results/13_headline_numbers.csv,P(noise>=obs)=0.30
+2/3,Spread: Same-persona noise floor,0.14000,"15 items, n=1",results/13_headline_numbers.csv,"range [0.0667, 0.2667]"
+2,"Noise floor, same-persona pairs","[1,1,1,1,2,2,2,3,4,4] of 15",10,results/11_diagnostic_report.txt,mean 2.10/15
+2,"Between-cell, v1 prompt",2/15,15,results/11_diagnostic_report.txt,"P(noise>=2)=0.60, directional gap +0.067"
+2,"Between-cell, v2 prompt",3/15,15,results/11_diagnostic_report.txt,"P(noise>=3)=0.30, directional gap +0.000"
+2,Model P(Yes) v1 / v2,0.050 / 0.044,60,results/11_diagnostic_report.txt,humans 0.278 on matched items
+2,DECISION,"LLM arm stopped; 3,675-call run not executed",,FINDINGS.md 2.13,"180 calls spent of 3,675 budgeted"
+3,Spread [race3 x gender2 (6 chosen cells)] All 123 human raters,0.20315,85,results/12_spread_by_condition.csv,"null 0.16549, excess +0.03766, z=+3.78, JSD 0.080599, to-pooled 0.13131"
+3,Spread [race3 x gender2 (6 chosen cells)] 104 kept (filtered),0.20900,69,results/12_spread_by_condition.csv,"null 0.18352, excess +0.02548, z=+2.75, JSD 0.088091, to-pooled 0.13668"
+3,Spread [gender2 x age3] All 123 human raters,0.16156,123,results/12_spread_by_condition.csv,"null 0.13989, excess +0.02167, z=+2.67, JSD 0.051054, to-pooled 0.10413"
+3,Spread [gender2 x age3] 104 kept (filtered),0.16018,104,results/12_spread_by_condition.csv,"null 0.15177, excess +0.00842, z=+1.13, JSD 0.053123, to-pooled 0.10398"
+3,Spread [gender2] All 123 human raters,0.09170,123,results/12_spread_by_condition.csv,"null 0.07869, excess +0.01301, z=+1.26, JSD 0.017121, to-pooled 0.04585"
+3,Spread [gender2] 104 kept (filtered),0.08186,104,results/12_spread_by_condition.csv,"null 0.08508, excess -0.00322, z=-0.36, JSD 0.014585, to-pooled 0.04093"
+3,Spread [race3 (White/Black/Asian only)] All 123 human raters,0.12887,85,results/12_spread_by_condition.csv,"null 0.11538, excess +0.01349, z=+1.21, JSD 0.033185, to-pooled 0.07447"
+3,Spread [race3 (White/Black/Asian only)] 104 kept (filtered),0.14766,69,results/12_spread_by_condition.csv,"null 0.12637, excess +0.02130, z=+2.16, JSD 0.042933, to-pooled 0.08583"
+3,Spread [race5] All 123 human raters,0.13835,123,results/12_spread_by_condition.csv,"null 0.12676, excess +0.01159, z=+1.40, JSD 0.038264, to-pooled 0.08794"
+3,Spread [race5] 104 kept (filtered),0.15419,104,results/12_spread_by_condition.csv,"null 0.13669, excess +0.01750, z=+2.30, JSD 0.047198, to-pooled 0.09847"
+3,Spread [age3 (NEGATIVE CONTROL)] All 123 human raters,0.09603,123,results/12_spread_by_condition.csv,"null 0.09913, excess -0.00310, z=-0.34, JSD 0.019276, to-pooled 0.05548"
+3,Spread [age3 (NEGATIVE CONTROL)] 104 kept (filtered),0.10715,104,results/12_spread_by_condition.csv,"null 0.10727, excess -0.00012, z=-0.01, JSD 0.023881, to-pooled 0.06219"
+3,Filtering vs random-19 [race3 x gender2 (6 chosen cells)],+0.00585,5000,results/12_spread_nullB.csv,"null +0.01092, z=-0.42, p=0.642"
+3,Filtering vs random-19 [gender2],-0.00984,5000,results/12_spread_nullB.csv,"null +0.00606, z=-2.10, p=0.037"
+3,Filtering vs random-19 [race5],+0.01584,5000,results/12_spread_nullB.csv,"null +0.01031, z=+0.86, p=0.380"
+3,Filtering vs random-19 [age3 (NEGATIVE CONTROL)],+0.01112,5000,results/12_spread_nullB.csv,"null +0.00895, z=+0.57, p=0.553"
+3,Spread by ent_bin: low,0.17345 -> 0.17029,118,results/12_spread_breakdowns.csv,delta -0.00316
+3,Spread by ent_bin: medium,0.20302 -> 0.21160,115,results/12_spread_breakdowns.csv,delta +0.00858
+3,Spread by ent_bin: high,0.23323 -> 0.24549,117,results/12_spread_breakdowns.csv,delta +0.01226
+3,Spread by degree_of_harm: Extreme,0.20305 -> 0.20923,199,results/12_spread_breakdowns.csv,delta +0.00618
+3,Spread by degree_of_harm: Moderate,0.20957 -> 0.21665,98,results/12_spread_breakdowns.csv,delta +0.00708
+3,Spread by degree_of_harm: Benign,0.18298 -> 0.17875,31,results/12_spread_breakdowns.csv,delta -0.00423
+3,Spread by degree_of_harm: Debatable,0.20388 -> 0.21547,22,results/12_spread_breakdowns.csv,delta +0.01159

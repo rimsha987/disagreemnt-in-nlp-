@@ -1,0 +1,56 @@
+SCHEME VALIDATION
+  atomic tags in data:            25
+  atomic tags in scheme:          25 (25 unique)
+  in data but NOT in scheme:      none
+  in scheme but NOT in data:      none
+  duplicated across fine groups:  none
+  fine groups not in a coarse group: none
+  fine groups in >1 coarse group:    none
+
+FINE GROUPS (primary = first-listed tag; each item counted once)
+   Race & ethnicity                   93 items ( 26.6%)
+   Gender & sexuality                 57 items ( 16.3%)
+   Other identity & bigotry           36 items ( 10.3%)
+   Politics & ideology                53 items ( 15.1%)
+   Misinformation                     17 items (  4.9%)   << below MIN_CELL_N, will not be interpreted
+   Health & substances                32 items (  9.1%)
+   Crime, law & regulated goods       20 items (  5.7%)
+   Violence & sexual content          17 items (  4.9%)   << below MIN_CELL_N, will not be interpreted
+   Personal & financial               18 items (  5.1%)   << below MIN_CELL_N, will not be interpreted
+   Miscellaneous                       7 items (  2.0%)   << below MIN_CELL_N, will not be interpreted
+   TOTAL                             350
+
+COARSE GROUPS
+   Identity-based harm               186 items ( 53.1%)
+   Politics & misinformation          70 items ( 20.0%)
+   Health, safety & legality          69 items ( 19.7%)
+   Other                              25 items (  7.1%)
+   TOTAL                             350
+
+COARSE x degree_of_harm  (the Phase 2 breakdown cells)
+degree_of_harm             Benign  Debatable  Moderate  Extreme  ALL
+coarse                                                              
+Identity-based harm             9          5        42      130  186
+Politics & misinformation      13          6        23       28   70
+Health, safety & legality       6          8        20       35   69
+Other                           3          3        13        6   25
+
+   cells below MIN_CELL_N=20: 10 of 16
+
+MULTI-LABEL ROBUSTNESS VARIANT (item counted in every group it touches)
+   Race & ethnicity                   96
+   Gender & sexuality                 62
+   Other identity & bigotry           51
+   Politics & ideology                66
+   Misinformation                     29
+   Health & substances                38
+   Crime, law & regulated goods       25
+   Violence & sexual content          24
+   Personal & financial               23
+   Miscellaneous                       7
+   TOTAL (>350 by construction)      421
+
+HOW MANY ITEMS DOES FIRST-TAG vs MULTI-LABEL DISAGREE ON?
+   items whose tags span >1 fine group: 68 / 350 (19.4%)
+
+wrote results/item_harm_groups.csv

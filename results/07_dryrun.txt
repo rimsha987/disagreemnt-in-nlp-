@@ -1,0 +1,13 @@
+built 60 pilot requests
+   items      [10, 42, 50, 51, 52, 54, 68, 134, 183, 185, 220, 239, 274, 313, 316]
+   conditions ['Asian-Woman#1', 'Asian-Woman#2', 'White-Man#1', 'baseline#1']
+      Asian-Woman#1    15 calls
+      Asian-Woman#2    15 calls
+      White-Man#1      15 calls
+      baseline#1       15 calls
+
+DRY RUN. Validating every request; no API call, no file written.
+   all 60 requests valid
+   distinct persona/baseline texts across the pilot: 4 (expected 4)
+
+DRY RUN PASSED. Set ANTHROPIC_API_KEY and re-run without --dry-run.

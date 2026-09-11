@@ -1,0 +1,192 @@
+================================================================================================
+RQ1 PART 2 - HOW MUCH DO THE LABELS MOVE?
+================================================================================================
+unfiltered: 123 raters, 43050 ratings, 123 per item
+filtered:   104 raters, 36400 ratings, 104 per item
+
+================================================================================================
+PER-ITEM LABEL SHIFT - TVD PRIMARY, JSD SECONDARY
+================================================================================================
+
+   -- TVD (PRIMARY), range [0,1] --
+      n items 350   mean 0.01556   sd 0.00918
+      min 0.00016   5th 0.00359   median 0.01403   95th 0.03308   99th 0.04188
+      max 0.04339  (item_id 143)
+
+   -- JSD (secondary), range [0,1] --
+      n items 350   mean 0.00055   sd 0.00081
+      min 0.00000   5th 0.00003   median 0.00035   95th 0.00160   99th 0.00421
+      max 0.00871  (item_id 140)
+
+   JS distance (sqrt JSD): mean 0.02016, median 0.01864, max 0.09330
+
+   TVD is directly readable: a TVD of 0.0156 means the filtered and unfiltered
+   distributions differ by 1.56 percentage points of probability mass in total.
+   Spearman rho(TVD, JSD) across items = +0.8365
+
+   items by TVD magnitude:
+      0.000 <= TVD < 0.010    105 items ( 30.0%)
+      0.010 <= TVD < 0.020    151 items ( 43.1%)
+      0.020 <= TVD < 0.030     67 items ( 19.1%)
+      0.030 <= TVD < 0.050     27 items (  7.7%)
+      0.050 <= TVD < 1.000      0 items (  0.0%)
+
+================================================================================================
+MAJORITY LABEL CHANGES
+================================================================================================
+   items whose majority label changes: 9 / 350 (2.6%)
+   ties under the full pool:   2
+   ties under the filtered pool: 4
+
+   every changed item:
+ item_id    maj_all   maj_kept    tvd    jsd  entropy_all  cnt_all_No  cnt_all_Yes  cnt_all_Unsure  cnt_kept_No  cnt_kept_Yes  cnt_kept_Unsure
+     116         No        Yes 0.0433 0.0015       1.4128          55           53              15           42            49               13
+     161         No        Yes 0.0403 0.0012       1.3012          61           53               9           48            49                7
+     196         No TIE:No|Yes 0.0278 0.0006       1.3433          59           53              11           47            47               10
+     204 TIE:No|Yes        Yes 0.0226 0.0004       1.3451          56           56              11           45            49               10
+     231         No        Yes 0.0389 0.0012       1.3949          58           51              14           45            47               12
+     244         No        Yes 0.0255 0.0005       1.2816          59           56               8           48            50                6
+     254         No TIE:No|Yes 0.0130 0.0001       1.3970          56           53              14           46            46               12
+     267        Yes TIE:No|Yes 0.0119 0.0004       1.2820          57           58               8           48            48                8
+     330         No        Yes 0.0159 0.0006       1.3254          57           56              10           48            49                7
+
+   majority label distribution:
+      unfiltered: {'No': np.int64(269), 'Yes': np.int64(79), 'TIE:No|Yes': np.int64(2)}
+      filtered:   {'No': np.int64(262), 'Yes': np.int64(84), 'TIE:No|Yes': np.int64(4)}
+
+================================================================================================
+DIRECTION OF THE SHIFT
+================================================================================================
+   mean change in P(Yes) = +0.00452  (median +0.00313, sd 0.01444)
+   items where P(Yes) rises: 207, falls: 143, unchanged: 0
+   mean change in P(Unsure) = -0.00063
+   pool-level P(Yes): unfiltered 0.32669  ->  filtered 0.33121
+   mean absolute change in P(Yes) = 0.01187 (1.19 percentage points)
+
+   NO ITEM-LEVEL SIGNIFICANCE TEST IS REPORTED HERE. A Wilcoxon signed-rank over
+   the 350 items would treat them as 350 independent observations, but the same 19
+   raters are removed from every item - there is ONE independent draw of a removal
+   set, not 350. Any such test is pseudo-replicated. Inference on this shift comes
+   from the rater-level permutation test in src/03b_direction_and_metric_checks.py.
+
+================================================================================================
+DOES FILTERING MATTER MORE FOR CONTESTED ITEMS?
+================================================================================================
+   unfiltered entropy (base 2, max log2(3)=1.585): mean 1.0524, median 1.1089, min 0.2746, max 1.4644
+   TVD (PRIMARY)    vs entropy: Spearman +0.2664 (p=4.23e-07)   Pearson +0.2502 (p=2.15e-06)   n=350
+   JSD (secondary)  vs entropy: Spearman -0.0475 (p=0.376)   Pearson -0.2562 (p=1.19e-06)   n=350
+
+   entropy tertile cut points: [0.2746, 0.96, 1.2087, 1.4644]
+
+   bin         n    entropy range   mean TVD  median TVD  mean |dP(Yes)|  maj flips   mean JSD
+   low       118      0.275-0.960    0.01281     0.01149         0.00922          0    0.00077
+   medium    115      0.961-1.207    0.01580     0.01485         0.01211          0    0.00044
+   high      117      1.209-1.464    0.01810     0.01728         0.01431          9    0.00044
+   Kruskal-Wallis across bins, TVD (PRIMARY)    H=18.779, p=8.36e-05
+   Kruskal-Wallis across bins, JSD (secondary)  H=1.438, p=0.487
+
+   TVD, |dP(Yes)| and the flip counts all rise monotonically with disagreement.
+   JSD does not, for the 1/p_i reason established in 03b. TVD is the primary read.
+
+================================================================================================
+BASELINE: IS THIS FILTER'S SHIFT BIGGER THAN REMOVING *ANY* 19 RATERS?
+(not requested in the brief; added because 'JSD is small' means little without
+ a null, and this separates 'filtering does nothing' from 'any 19 do this')
+================================================================================================
+   observed mean JSD (published filter):        0.000550
+   null: 2000 random removals of 19 raters (seed 20260826)
+      mean   0.000575
+      sd     0.000155
+      2.5th  0.000400   97.5th 0.000985
+      min    0.000349   max 0.001734
+   proportion of random removals with mean JSD >= observed: 0.4495
+   observed is -0.16 SD from the null mean
+
+================================================================================================
+APPENDIX - BINARY COLLAPSE ROBUSTNESS CHECK
+Unsure merged into No, i.e. Yes vs not-Yes. Primary analysis stays 3-way.
+================================================================================================
+   binary JSD: mean 0.00024, median 0.00010, max 0.00495
+   3-way JSD:  mean 0.00055, median 0.00035, max 0.00871
+   ratio of means (binary / 3-way): 0.433
+   Spearman rho between the two per-item JSD series: +0.6161 p=5.79e-38
+   -> conclusion is unchanged by the collapse; magnitudes differ because
+      the binary version cannot see movement between No and Unsure.
+
+wrote results/03_item_jsd.csv, results/03_entropy_bins.csv
+
+================================================================================================
+WORKED EXAMPLE - ONE CONVERSATION, BY HAND
+================================================================================================
+item_id = 140
+chosen because it has the LARGEST per-item JSD of all 350 items, so it is the
+strictest arithmetic check available. It is not typical; the median item is at the end.
+
+degree_of_harm = Extreme   harm_type = Gendered & Sexist
+safety_gold    = No
+
+STEP 1. Raw ratings on Q_overall
+   total raters on this item: 123
+      No        115
+      Yes         6
+      Unsure      2
+      SUM       123
+
+   of these, 19 raters are on the published removal list.
+   how those 19 removed raters voted:
+      No         15
+      Yes         2
+      Unsure      2
+      SUM        19
+
+STEP 2. Two soft label distributions
+   UNFILTERED, all 123 raters:
+      P(No     ) = 115 / 123 = 0.934959
+      P(Yes    ) =   6 / 123 = 0.048780
+      P(Unsure ) =   2 / 123 = 0.016260
+      sum = 1.000000
+   FILTERED, 104 kept raters:
+      P(No     ) = 100 / 104 = 0.961538
+      P(Yes    ) =   4 / 104 = 0.038462
+      P(Unsure ) =   0 / 104 = 0.000000
+      sum = 1.000000
+
+STEP 3. Mixture M = (P + Q) / 2
+      M(No     ) = (0.934959 + 0.961538) / 2 = 0.948249
+      M(Yes    ) = (0.048780 + 0.038462) / 2 = 0.043621
+      M(Unsure ) = (0.016260 + 0.000000) / 2 = 0.008130
+      sum = 1.000000
+
+STEP 4. Shannon entropies, base 2, H(x) = -sum p*log2(p), 0*log2(0) := 0
+      H(P (unfiltered) ) = 0.090714 + 0.212564 + 0.096626 = 0.399904 bits
+      H(Q (filtered)   ) = 0.054407 + 0.180786 + 0.000000 = 0.235193 bits
+      H(M (mixture)    ) = 0.072695 + 0.197116 + 0.056443 = 0.326254 bits
+
+STEP 5. JSD = H(M) - [H(P) + H(Q)] / 2
+      = 0.326254 - (0.399904 + 0.235193) / 2
+      = 0.326254 - 0.317549
+      = 0.008706 bits
+   JS distance = sqrt(JSD) = 0.093304
+   cross-check against results/03_item_jsd.csv: 0.008706
+
+STEP 6. What moved
+      majority label: No -> No   (unchanged)
+      P(Yes): 0.048780 -> 0.038462  (-0.010319, -1.03 percentage points)
+      entropy: 0.399904 -> 0.235193 bits (-0.164710)
+
+   Sense check: the 19 removed raters split 15/2/2 across ['No', 'Yes', 'Unsure'],
+   against 115/6/2 in the full pool. Removing them
+   changes each proportion by a few points, and JSD of a few points of movement is
+   O(0.001-0.01) bits. The number is small because the perturbation is small.
+
+------------------------------------------------------------------------------------------------
+FOR CONTRAST, the median item (item_id 235, JSD 0.000347):
+   unfiltered counts [87, 27, 9] of 123 -> [np.float64(0.7073), np.float64(0.2195), np.float64(0.0732)]
+   filtered   counts [75, 21, 8] of 104 -> [np.float64(0.7212), np.float64(0.2019), np.float64(0.0769)]
+   majority No -> No
+
+wrote results/03_worked_example.txt
+
+FIGURES
+   wrote figures/fig2_label_shift_histogram.pdf and figures/fig2_label_shift_histogram.png
+   wrote figures/fig2b_jsd_by_entropy.pdf and figures/fig2b_jsd_by_entropy.png

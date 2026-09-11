@@ -1,0 +1,37 @@
+
+====================================================================================================
+COST ESTIMATE FOR THE FULL RUN
+ESTIMATES, not measurements. Token counts come from a 3.6 chars/token heuristic;
+exact counts need the API. Treat these as an order of magnitude, not a quote.
+====================================================================================================
+
+   estimated tokens
+      rubric (system block 0, identical in every call)        900
+      persona block (mean over the 19 texts)                   90
+      conversation + cue (mean over 350 items)                148   [min 61, max 441]
+      output (forced single word)                               8  (max_tokens)
+      -------------------------------------------------- 
+      input per call                                         1138
+
+   call count: 350 items x 21 conditions = 7,350 calls
+      (6 cells x 3 distinct personas = 18 persona conditions, + 3 baseline samples)
+
+   PROMPT CACHING
+      rubric is ~900 estimated tokens, BELOW the ~1024-token minimum
+      cacheable prefix. On this estimate CACHING WOULD NOT ENGAGE AT ALL and the
+      breakpoint would be inert. Costs below are quoted WITHOUT any cache saving.
+      If the measured count comes in above 1024, caching engages and the
+      figures below are an overestimate. This is checked for real in 07_run_pilot.
+
+   standard API
+      no caching:        $  8.66
+
+   Batch API (50% off)
+      no caching:        $  4.33
+
+   PILOT (60 calls, standard API, no batch): $0.0707
+
+   Caveat that matters more than the arithmetic: Batch API pricing applies only if
+   the full run actually goes through /v1/messages/batches. The pilot uses standard
+   synchronous calls, because 60 calls do not need a batch and immediate results are
+   the point of a pilot.

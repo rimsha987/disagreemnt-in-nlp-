@@ -1,0 +1,90 @@
+====================================================================================================
+CANDIDATE CELL SCHEMES, SCORED BY BETWEEN-GROUP SPREAD
+all 123 raters, 350 items, unfiltered pool
+====================================================================================================
+
+-- race5 (all race groups) --
+   5 cells, sizes [26, 29, 22, 16, 30] (min 16, total 123 raters)
+   observed mean pairwise TVD  0.13835   (JSD 0.038264)
+   size-matched null           0.12749 +/- 0.00901
+   excess over null            +0.01086   z = +1.21
+
+-- gender2 --
+   2 cells, sizes [61, 62] (min 61, total 123 raters)
+   observed mean pairwise TVD  0.09170   (JSD 0.017121)
+   size-matched null           0.07794 +/- 0.00938
+   excess over null            +0.01377   z = +1.47
+
+-- age3 --
+   3 cells, sizes [31, 56, 36] (min 31, total 123 raters)
+   observed mean pairwise TVD  0.09603   (JSD 0.019276)
+   size-matched null           0.09949 +/- 0.00932
+   excess over null            -0.00346   z = -0.37
+
+-- race3 x gender2 (White/Black/Asian) --
+   6 cells, sizes [16, 10, 12, 17, 11, 19] (min 10, total 85 raters)
+   observed mean pairwise TVD  0.20315   (JSD 0.080599)
+   size-matched null           0.16559 +/- 0.01041
+   excess over null            +0.03756   z = +3.61
+
+-- gender2 x age3 --
+   6 cells, sizes [17, 25, 19, 14, 31, 17] (min 14, total 123 raters)
+   observed mean pairwise TVD  0.16156   (JSD 0.051054)
+   size-matched null           0.13959 +/- 0.00789
+   excess over null            +0.02197   z = +2.78
+
+-- race3 (White/Black/Asian only) --
+   3 cells, sizes [26, 29, 30] (min 26, total 85 raters)
+   observed mean pairwise TVD  0.12887   (JSD 0.033185)
+   size-matched null           0.11503 +/- 0.01126
+   excess over null            +0.01384   z = +1.23
+
+====================================================================================================
+RANKED BY z (real demographic signal above size-matched noise)
+====================================================================================================
+                             scheme  n_cells  min_cell  obs_tvd  null_tvd   excess        z
+race3 x gender2 (White/Black/Asian)        6        10  0.20315   0.16559  0.03756  3.60757
+                     gender2 x age3        6        14  0.16156   0.13959  0.02197  2.78477
+                            gender2        2        61  0.09170   0.07794  0.01377  1.46745
+     race3 (White/Black/Asian only)        3        26  0.12887   0.11503  0.01384  1.22925
+            race5 (all race groups)        5        16  0.13835   0.12749  0.01086  1.20522
+                               age3        3        31  0.09603   0.09949 -0.00346 -0.37113
+
+====================================================================================================
+CHOSEN: race3 x gender2 (White/Black/Asian)  -- 6 cells, a clean 2x3 factorial
+====================================================================================================
+   covers 85 of 123 raters (69%); excludes Latine/x (22) and Multiracial (16)
+
+   cell              n raters  n removed  % Yes (all)  % Yes (kept)  ratings/item
+   Asian-Man               16          4       29.64%        31.36%            16
+   Asian-Woman             10          1       47.83%        42.19%            10
+   Black-Man               12          5       31.83%        39.18%            12
+   Black-Woman             17          1       27.63%        28.89%            17
+   White-Man               11          2       18.10%        17.08%            11
+   White-Woman             19          3       32.78%        31.27%            19
+
+   pairwise human TVD between the 6 chosen cells, averaged over 350 items:
+                          Asian-Man     Asian-Woman       Black-Man     Black-Woman       White-Man     White-Woman
+   Asian-Man                      -          0.2592          0.1380          0.1490          0.1703          0.1464
+   Asian-Woman               0.2592               -          0.2551          0.2635          0.3679          0.2209
+   Black-Man                 0.1380          0.2551               -          0.1719          0.1838          0.1464
+   Black-Woman               0.1490          0.2635          0.1719               -          0.2100          0.1613
+   White-Man                 0.1703          0.3679          0.1838          0.2100               -          0.2036
+   White-Woman               0.1464          0.2209          0.1464          0.1613          0.2036               -
+
+   WHY THIS SCHEME, in one place:
+   * race carries the real human spread (Phase 0: 27.4%-38.2% Yes across race,
+     versus ~3 points across gender and ~3 across age), so RQ2 has something to
+     detect. A gender x age scheme would ask the model to reproduce differences
+     the humans barely show.
+   * crossing with gender ties Phase 2 to Phase 1: gender is the axis the
+     published filter is actually biased on (men removed at 3.4x, p=0.026).
+   * it is a balanced 2x3 factorial, so main effects and the interaction are
+     separable, which a ragged 6-cell pick would not allow.
+   * smallest cell is 10 raters. Thin, and reported as such everywhere.
+
+   COST: Latine/x and Multiracial raters are excluded from the persona
+   comparison. Multiracial has the HIGHEST %Yes in the pool (38.2), so the
+   chosen cells span a narrower range than the full pool does. This understates
+   human diversity and must be stated as a limitation, not buried. Both groups
+   remain in the Phase 3 human conditions, which use all 123 raters.

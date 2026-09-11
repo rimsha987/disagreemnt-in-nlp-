@@ -1,0 +1,30 @@
+# Python environment
+.venv/
+__pycache__/
+*.pyc
+
+# Third-party dataset. NOT redistributed here: DICES is released by Google LLC
+# under CC BY 4.0 from its own repository. See README for the clone command.
+data/
+
+# LaTeX build artefacts and working backups
+tex/*.bak
+tex/main_FULL_backup.tex
+tex/overleaf_project.zip
+tex/report_20page.pdf
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# Local working notes used while writing the report, not research artefacts
+CORRECTIONS.md
+PAPER_SCAFFOLD.md
+REVISIONS.md
+SECTION2_SCAFFOLD.md
+
+# Full-text extractions of third-party published papers, kept locally for
+# reading only. NOT redistributed: these are other authors' copyrighted work
+# and are not needed to reproduce anything in this study.
+papers/

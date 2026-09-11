@@ -1,0 +1,19 @@
+cell,persona,k,rater_age,rater_education,n_real_raters,n_cell_raters,n_distinct_profiles
+Asian-Man,Asian-Man#1,1,millenial,College degree or higher,6,16,6
+Asian-Man,Asian-Man#2,2,gen x+,College degree or higher,4,16,6
+Asian-Man,Asian-Man#3,3,millenial,High school or below,3,16,6
+Asian-Woman,Asian-Woman#1,1,millenial,College degree or higher,5,10,3
+Asian-Woman,Asian-Woman#2,2,gen x+,College degree or higher,3,10,3
+Asian-Woman,Asian-Woman#3,3,gen z,High school or below,2,10,3
+Black-Man,Black-Man#1,1,gen z,College degree or higher,5,12,4
+Black-Man,Black-Man#2,2,gen x+,College degree or higher,4,12,4
+Black-Man,Black-Man#3,3,gen z,High school or below,2,12,4
+Black-Woman,Black-Woman#1,1,gen z,High school or below,6,17,6
+Black-Woman,Black-Woman#2,2,millenial,College degree or higher,4,17,6
+Black-Woman,Black-Woman#3,3,gen z,College degree or higher,3,17,6
+White-Man,White-Man#1,1,gen z,College degree or higher,4,11,5
+White-Man,White-Man#2,2,gen z,High school or below,3,11,5
+White-Man,White-Man#3,3,gen x+,College degree or higher,2,11,5
+White-Woman,White-Woman#1,1,gen z,College degree or higher,7,19,5
+White-Woman,White-Woman#2,2,gen z,High school or below,5,19,5
+White-Woman,White-Woman#3,3,gen x+,College degree or higher,4,19,5

@@ -1,0 +1,57 @@
+forced inclusions (the 15 pilot items): [10, 42, 50, 51, 52, 54, 68, 134, 183, 185, 220, 239, 274, 313, 316]
+
+============================================================================================
+STRATA IN THE FULL 350
+============================================================================================
+harm_stratum  Extreme  Moderate  Benign/Debatable
+ent_bin                                          
+low                68        28                22
+medium             68        31                16
+high               63        39                15
+
+   4-level degree_of_harm before collapsing: {'Extreme': np.int64(199), 'Moderate': np.int64(98), 'Benign': np.int64(31), 'Debatable': np.int64(22)}
+
+============================================================================================
+ALLOCATION (proportional 50%, largest-remainder, forced inclusions honoured)
+============================================================================================
+   stratum                       pool  quota  forced  drawn
+   high | Benign/Debatable         15      8       2      6
+   high | Extreme                  63     32       1     31
+   high | Moderate                 39     19       2     17
+   low | Benign/Debatable          22     11       4      7
+   low | Extreme                   68     34       1     33
+   low | Moderate                  28     14       0     14
+   medium | Benign/Debatable       16      8       0      8
+   medium | Extreme                68     34       3     31
+   medium | Moderate               31     15       2     13
+
+============================================================================================
+RESULT
+============================================================================================
+   block 1: 175 items -> 3,675 calls
+   block 2: 175 items (queued continuation)
+
+   block 1 strata:
+harm_stratum  Extreme  Moderate  Benign/Debatable
+ent_bin                                          
+low                34        14                11
+medium             34        15                 8
+high               32        19                 8
+
+   entropy tertile balance: {'high': np.int64(59), 'low': np.int64(59), 'medium': np.int64(57)}
+   harm balance:            {'Extreme': np.int64(100), 'Moderate': np.int64(48), 'Benign/Debatable': np.int64(27)}
+
+   proportions preserved (block 1 % vs full 350 %):
+      ent_bin         low                block1  33.7%   full  33.7%
+      ent_bin         high               block1  33.7%   full  33.4%
+      ent_bin         medium             block1  32.6%   full  32.9%
+      harm_stratum    Extreme            block1  57.1%   full  56.9%
+      harm_stratum    Moderate           block1  27.4%   full  28.0%
+      harm_stratum    Benign/Debatable   block1  15.4%   full  15.1%
+      degree_of_harm  Extreme            block1  57.1%   full  56.9%
+      degree_of_harm  Moderate           block1  27.4%   full  28.0%
+      degree_of_harm  Benign             block1   9.1%   full   8.9%
+      degree_of_harm  Debatable          block1   6.3%   full   6.3%
+
+   wrote results/09_item_blocks.csv
+   THIS FILE IS FROZEN. Re-running this script verifies it and will not redraw.

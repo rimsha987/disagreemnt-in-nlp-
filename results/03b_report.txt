@@ -1,0 +1,82 @@
+================================================================================================
+(1) IS THE DIRECTION OF THE SHIFT SYSTEMATIC?
+================================================================================================
+   The filter's MAGNITUDE was null (mean JSD p_perm=0.45). JSD is unsigned, so it
+   cannot see a small consistent push. Testing the signed shift against the same
+   null: remove 19 raters at random, 10,000 times.
+
+   observed mean per-item change in P(Yes): +0.004519
+   observed mean ABSOLUTE change:           0.011873
+   observed majority-label flips:           9
+
+   -- mean d_P(Yes) (signed) --
+      null mean +0.000003   sd 0.007660   95% range [-0.015591, +0.014355]
+      observed  +0.004519   z = +0.59   two-sided p_perm = 0.5635
+
+   -- mean |d_P(Yes)| --
+      null mean +0.012961   sd 0.002143   95% range [+0.010435, +0.018843]
+      observed  +0.011873   z = -0.51   two-sided p_perm = 0.5577
+
+   -- majority flips --
+      null mean +7.396300   sd 2.264298   95% range [+3.000000, +12.000000]
+      observed  +9.000000   z = +0.71   two-sided p_perm = 0.4764
+
+   -- RECONCILING WITH THE WILCOXON TEST IN SCRIPT 03 --
+      script 03 reported Wilcoxon on per-item d_P(Yes): p = 7.57e-07, which
+      looks decisive. The permutation test above says p = 0.5635. They disagree because the
+      Wilcoxon treats the 350 items as 350 independent observations. They are not.
+      The SAME 19 raters are removed from every item, so there is exactly ONE
+      independent draw of a removal set, not 350. The Wilcoxon is pseudo-replicated
+      and its p-value is not interpretable as evidence about the filter.
+      The permutation test, whose unit of randomisation is the rater set, is the
+      correct one. THE WILCOXON RESULT IN SCRIPT 03 IS SUPERSEDED AND SHOULD NOT
+      BE QUOTED. What the Wilcoxon does establish, descriptively, is that the
+      shift is CONSISTENT in sign across items (207 up, 143 down) - but a
+      randomly chosen set of 19 raters produces an equally consistent shift.
+
+   WHY THE DIRECTION EXISTS - composition of the removed group:
+      removed raters (n=19)  P(Yes) = 0.3020
+      kept raters    (n=104) P(Yes) = 0.3312
+      difference = +0.0293
+      the filter removes 14/61 men but 5/62 women; men's pool-wide P(Yes) is
+      0.3116 vs women's 0.3416, so dropping men tilts the
+      surviving pool toward the higher-P(Yes) group.
+
+================================================================================================
+(2) IS JSD MISLEADING AT LOW ENTROPY?
+================================================================================================
+   total variation distance, TVD = 0.5*sum|p-q|, has no log term.
+      TVD: mean 0.01556, median 0.01403, max 0.04339
+      JSD vs entropy:  Spearman -0.0475 (p=0.376)   Pearson -0.2562 (p=1.19e-06)
+      TVD vs entropy:  Spearman +0.2665 (p=4.2e-07)   Pearson +0.2502 (p=2.15e-06)
+
+   MECHANISM CHECK: JSD ~= (1/(8 ln2)) * sum_i (q_i-p_i)^2 / p_i ?
+      Pearson r(approx, actual JSD) = 0.931012
+      max |approx - actual|         = 5.243e-03
+      mean relative error           = 0.0530
+      -> the second-order form is accurate here, so the 1/p_i weighting is real.
+
+      Spearman(smallest unfiltered cell prob, JSD) = -0.0786 (p=0.142)
+      Spearman(smallest unfiltered cell prob, TVD) = +0.1836 (p=0.000555)
+      NOTE: min-cell size alone does NOT correlate with JSD, because the size of
+      the perturbation D_i varies too. The 1/p_i weighting shows up in the
+      approximation above, not in a raw marginal correlation. Reported as such.
+
+   by entropy tertile, the two metrics ORDER THE BINS DIFFERENTLY:
+      bin         n   mean JSD   mean TVD  mean |dP(Yes)|  flips
+      low       118    0.00077    0.01281         0.00922      0
+      medium    115    0.00044    0.01580         0.01211      0
+      high      117    0.00044    0.01810         0.01431      9
+
+      Kruskal-Wallis JSD across bins: H=1.438, p=0.487
+      Kruskal-Wallis TVD across bins: H=18.771, p=8.4e-05
+
+   the single largest-JSD item (140) sits in the LOW-entropy tertile:
+      item 140: entropy 0.3999, JSD 0.00871, TVD 0.02658, |dP(Yes)| 0.01032
+      its 'Unsure' cell went 2/123 -> 0/104, and JSD punishes a cell hitting zero
+      far harder than TVD does. Under TVD it ranks 45 of 350, not 1st.
+
+   appended tvd and min_cell_all to results/03_item_jsd.csv
+
+FIGURE
+   wrote figures/fig2c_metric_sensitivity.pdf and figures/fig2c_metric_sensitivity.png

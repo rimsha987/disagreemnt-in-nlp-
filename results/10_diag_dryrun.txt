@@ -1,0 +1,19 @@
+============================================================================================
+DIAGNOSTIC ROUND - provider=groq model=qwen/qwen3.8-27b
+============================================================================================
+   Diagnostic A (noise floor, v1 prompt, 5 reps of Asian-Woman#1): 75 calls
+   Diagnostic B (v2 prompt, 3 conditions):                        45 calls
+   total planned      120
+   already complete   0
+   remaining          120
+
+DRY RUN. Validating; no API call, no file written.
+   A: 1 distinct system text across all 75 calls (prompt held constant) OK
+   A: 15 items x 5 reps OK
+   B: v2 system used for all 45, persona is in the USER message OK
+   B: 3 conditions x 15 items OK
+
+   v1 system 3576 chars / user 169 chars
+   v2 system 3022 chars / user 902 chars
+
+DRY RUN PASSED.

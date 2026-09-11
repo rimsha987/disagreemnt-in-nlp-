@@ -1,0 +1,42 @@
+column,dtype,n_unique,n_null,values_or_count
+id,int64,43050,0,<43050 distinct>
+rater_id,str,123,0,<123 distinct>
+rater_gender,str,2,0,Man | Woman
+rater_race,str,5,0,"Asian/Asian subcontinent | Black/African American | LatinX, Latino, Hispanic or Spanish Origin | Multiracial |..."
+rater_raw_race,str,14,0,<14 distinct>
+rater_age,str,3,0,gen x+ | gen z | millenial
+rater_education,str,3,0,College degree or higher | High school or below | Other
+phase,str,1,0,Phase3
+item_id,int64,350,0,<350 distinct>
+answer_time_ms,int64,39058,0,<39058 distinct>
+answer_timestamp,int64,42101,0,<42101 distinct>
+context,str,271,0,<271 distinct>
+response,str,344,0,<344 distinct>
+degree_of_harm,str,4,0,Benign | Debatable | Extreme | Moderate
+harm_type,str,71,0,<71 distinct>
+safety_gold,str,2,0,No | Yes
+safety_gold_reason,str,38,0,<38 distinct>
+Q1_whole_conversation_evaluation,str,4,0,I am not familiar with the topic of the conversation | It is in a language other than English | It is nonsensi...
+Q2_harmful_content_medical_legal_financial_or_relationship_advice,str,3,0,No | Unsure | Yes
+Q2_harmful_content_dangerous_content,str,3,0,No | Unsure | Yes
+Q2_harmful_content_derogation_of_boat,str,3,0,No | Unsure | Yes
+Q2_harmful_content_insensitive,str,3,0,No | Unsure | Yes
+Q2_harmful_content_obscene_and_profane,str,3,0,No | Unsure | Yes
+Q2_harmful_content_personal_information,str,3,0,No | Unsure | Yes
+Q2_harmful_content_regulated_goods,str,3,0,No | Unsure | Yes
+Q2_harmful_content_sexually_suggestive_content,str,3,0,No | Unsure | Yes
+Q2_harmful_content_other,str,3,0,No | Unsure | Yes
+Q3_bias_targeting_beliefs,str,3,0,No | Unsure | Yes
+Q3_bias_targeting_gender_sexual_orientation,str,3,0,No | Unsure | Yes
+Q3_bias_targeting_inherited_attributes,str,3,0,No | Unsure | Yes
+Q3_bias_targeting_status,str,3,0,No | Unsure | Yes
+Q3_bias_other,str,3,0,No | Unsure | Yes
+Q4_misinformation,str,3,0,No | Unsure | Yes
+Q5_political_affiliation,str,3,0,No | Unsure | Yes
+Q6_policy_guidelines_polarizing_topics,str,3,0,No | Unsure | Yes
+Q6_policy_guidelines_making_endorsement,str,3,0,No | Unsure | Yes
+Q6_policy_guidelines_other,str,3,0,No | Unsure | Yes
+Q2_harmful_content_overall,str,3,0,No | Unsure | Yes
+Q3_bias_overall,str,3,0,No | Unsure | Yes
+Q6_policy_guidelines_overall,str,3,0,No | Unsure | Yes
+Q_overall,str,3,0,No | Unsure | Yes

@@ -1,0 +1,8 @@
+condition,scope,tvd,excess,z,note
+"Humans, all 123","350 items, 6 cells, full groups",0.2031509973686444,0.037663844079852,3.784766094129634,full precision
+"Humans, 104 kept","350 items, 6 cells, full groups",0.2090032123960695,0.0254806047241118,2.7478014700366025,full precision
+"Humans, full groups","15 items, 2 groups",0.4006060606060606,,,reference
+"Humans, 1 rater/group","15 items, 2 groups, n=1",0.5243,,,"like-for-like; 95% [0.2667, 0.7333]"
+LLM persona v1,"15 items, 2 groups, n=1",0.13333333333333333,,,P(noise>=obs)=0.60
+LLM persona v2,"15 items, 2 groups, n=1",0.2,,,P(noise>=obs)=0.30
+Same-persona noise floor,"15 items, n=1",0.13999999999999999,,,"range [0.0667, 0.2667]"

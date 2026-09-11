@@ -1,0 +1,228 @@
+================================================================================================
+PILOT REPORT
+================================================================================================
+   shard raw_responses/phase2\pilot_groq_20260827T120802.jsonl
+responses in file: 60   expected: 60   MATCH
+
+================================================================================================
+1. TRANSPORT FAILURES AND REFUSALS
+================================================================================================
+   API errors:        0 / 60
+   finish_reason values: {'stop': np.int64(60)}
+   retry attempts: max 1, calls needing >1 attempt: 0
+   provider-side blocks/refusals (finish_reason): 0 / 60 (0.0%)
+
+================================================================================================
+0. PROVENANCE - was the demographic text actually sent?
+================================================================================================
+
+   Asian-Woman#1  (15 calls)
+      distinct system texts: 1   distinct system sha256: 1
+      demographic sentence present: True   expected: True   OK
+      sent verbatim: 'About you: You are a woman. Your race or ethnicity is Asian or of the Asian subcontinent. You are a Millennial. Your highest level of education is a c'
+
+   Asian-Woman#2  (15 calls)
+      distinct system texts: 1   distinct system sha256: 1
+      demographic sentence present: True   expected: True   OK
+      sent verbatim: 'About you: You are a woman. Your race or ethnicity is Asian or of the Asian subcontinent. You are a member of Generation X or older. Your highest leve'
+
+   White-Man#1  (15 calls)
+      distinct system texts: 1   distinct system sha256: 1
+      demographic sentence present: True   expected: True   OK
+      sent verbatim: 'About you: You are a man. Your race or ethnicity is White. You are a member of Generation Z. Your highest level of education is a college degree or hi'
+
+   baseline#1  (15 calls)
+      distinct system texts: 1   distinct system sha256: 1
+      demographic sentence present: False   expected: False   OK
+      sent verbatim: 'You are one specific individual rater, not an average of any group. Other raters on this task may reach different conclusions from yours, and that is '
+
+   PROVENANCE: PASS - every persona reached the API as written
+
+================================================================================================
+2. PARSE SUCCESS
+================================================================================================
+   parsed:     60 / 60 (100.0%)
+   unparsed:   0
+
+   rating distribution over parsed replies:
+      No           54  ( 90.0%)
+      Unsure        3  (  5.0%)
+      Yes           3  (  5.0%)
+
+   per-item ratings by condition (15 items):
+condition Asian-Woman#1 Asian-Woman#2 White-Man#1 baseline#1
+item_id                                                     
+10                   No           Yes          No         No
+42                   No            No          No         No
+50                   No            No          No         No
+51                   No            No          No         No
+52                   No            No          No         No
+54                   No            No          No         No
+68                  Yes            No          No     Unsure
+134                  No            No          No         No
+183                  No            No          No         No
+185                  No            No          No         No
+220                  No            No          No         No
+239                  No            No          No         No
+274                  No        Unsure          No        Yes
+313                  No            No          No         No
+316              Unsure            No          No         No
+
+================================================================================================
+3. WITHIN-CELL  (validates the distinct-persona design)
+================================================================================================
+   Asian-Woman#1 vs Asian-Woman#2: agree on 73.3% of 15 items (11 identical, 4 different)
+   marginals: Asian-Woman#1 {'No': np.int64(13), 'Yes': np.int64(1), 'Unsure': np.int64(1)}
+              Asian-Woman#2 {'No': np.int64(13), 'Unsure': np.int64(1), 'Yes': np.int64(1)}
+
+   Asian-Woman#1 (rows) x Asian-Woman#2 (cols):
+Asian-Woman#2  No  Unsure  Yes
+Asian-Woman#1                 
+No             11       1    1
+Unsure          1       0    0
+Yes             1       0    0
+
+   items where they differ:
+condition Asian-Woman#1 Asian-Woman#2
+item_id                              
+10                   No           Yes
+68                  Yes            No
+274                  No        Unsure
+316              Unsure            No
+
+================================================================================================
+4. BETWEEN-CELL (validates persona conditioning at all)
+================================================================================================
+   Asian-Woman#1 vs White-Man#1: agree on 86.7% of 15 items (13 identical, 2 different)
+   marginals: Asian-Woman#1 {'No': np.int64(13), 'Yes': np.int64(1), 'Unsure': np.int64(1)}
+              White-Man#1 {'No': np.int64(15)}
+
+   Asian-Woman#1 (rows) x White-Man#1 (cols):
+White-Man#1    No
+Asian-Woman#1    
+No             13
+Unsure          1
+Yes             1
+
+   items where they differ:
+condition Asian-Woman#1 White-Man#1
+item_id                            
+68                  Yes          No
+316              Unsure          No
+
+================================================================================================
+5. PERSONA vs BASELINE
+================================================================================================
+   Asian-Woman#1 vs baseline#1: agree on 80.0% of 15 items (12 identical, 3 different)
+   marginals: Asian-Woman#1 {'No': np.int64(13), 'Yes': np.int64(1), 'Unsure': np.int64(1)}
+              baseline#1 {'No': np.int64(13), 'Yes': np.int64(1), 'Unsure': np.int64(1)}
+
+   Asian-Woman#1 (rows) x baseline#1 (cols):
+baseline#1     No  Unsure  Yes
+Asian-Woman#1                 
+No             12       0    1
+Unsure          1       0    0
+Yes             0       1    0
+
+   items where they differ:
+condition Asian-Woman#1 baseline#1
+item_id                           
+68                  Yes     Unsure
+274                  No        Yes
+316              Unsure         No
+
+================================================================================================
+PERSONA SENSITIVITY VERDICT
+================================================================================================
+   HUMAN REFERENCE on these same 15 items:
+      Asian-Woman     10 raters,   150 ratings   P(Yes)=0.433  P(No)=0.460  P(Unsure)=0.107
+      White-Man       11 raters,   165 ratings   P(Yes)=0.109  P(No)=0.861  P(Unsure)=0.030
+      human gap in P(Yes) between the two cells: 32.4 points
+
+   MODEL on the same items (15 items, 1 sample per condition):
+      Asian-Woman#1    P(Yes)=0.067   {'No': np.int64(13), 'Yes': np.int64(1), 'Unsure': np.int64(1)}
+      White-Man#1      P(Yes)=0.000   {'No': np.int64(15)}
+      model gap in P(Yes): 6.7 points
+      items where the two personas disagree: 2 / 15
+
+   NOISE FLOOR - Asian-Woman#1 vs Asian-Woman#2 (same cell):
+      items where they disagree: 4 / 15
+      these two share race and gender, so any disagreement here is NOT
+      demographic conditioning. It is persona-wording plus sampling noise.
+
+   BETWEEN-cell 2/15  vs  WITHIN-cell 4/15
+
+   ------------------------------------------------------------------------------------------
+   *** VERDICT: PERSONA CONDITIONING NOT DEMONSTRATED ***
+
+   The output does vary (2/15 between-cell differences), but it
+   varies AT LEAST AS MUCH between two personas from the SAME cell
+   (4/15). Two personas sharing race and gender cannot differ
+   BECAUSE of race or gender, so that variation is noise. A demographic
+   effect that does not exceed its own noise floor has not been shown.
+
+   This is NOT the same as the model being insensitive - the output is not
+   frozen. It is that the variation present is not attributable to the
+   manipulation. On 15 items with one sample each, the two cannot be
+   separated, so this is UNRESOLVED rather than negative.
+
+   DO NOT read this as 'personas fail to reproduce human diversity'. The
+   design cannot support that claim yet.
+
+   Decisive next step, cheap: re-run ONE persona on the SAME items several
+   times to measure the pure sampling noise floor directly, then test whether
+   the between-cell difference exceeds it. Until that is done, neither a
+   positive nor a negative persona finding is supportable.
+   ------------------------------------------------------------------------------------------
+
+================================================================================================
+BASELINE DEGENERACY
+================================================================================================
+   baseline#1 over 15 items: {'No': np.int64(13), 'Unsure': np.int64(1), 'Yes': np.int64(1)}
+   modal share: 0.867
+   the baseline varies across items; it is an informative floor.
+
+================================================================================================
+HOW MUCH VARIATION IS THERE AT ALL?
+================================================================================================
+   items where all 4 conditions gave the SAME rating: 11 / 15
+   items with 2 distinct ratings: 2
+   items with 3 distinct ratings: 2
+
+   by disagreement tertile of the HUMAN pool:
+      low      5 items, 4 fully unanimous across conditions, %Yes=5.0
+      medium   5 items, 3 fully unanimous across conditions, %Yes=5.0
+      high     5 items, 4 fully unanimous across conditions, %Yes=5.0
+
+================================================================================================
+6. MODEL IDENTITY, MEASURED TOKENS, THROUGHPUT
+================================================================================================
+   FOR THE PAPER'S DATA SECTION - copy these verbatim:
+      provider              ['groq']
+      model requested       ['qwen/qwen3.8-27b']
+      model version (as reported by the API)
+                            qwen/qwen3.8-27b                         60 calls
+
+   input_tokens   mean    922.9  min 826  max 1195  total 55,372
+   output_tokens  mean     2.05  max 3
+   (measured by the provider's own tokeniser; supersedes the chars/token estimate in results/06_token_profile.txt)
+
+   wall-clock for 60 calls: 7.1 min (8.4 calls/min achieved)
+   PROJECTED for the full 7,350 calls at that observed rate:
+      14.5 hours of continuous calling
+      (the daily-quota ceiling, not this rate, is what actually binds -
+       see src/07_run.py --mode full --status)
+
+   COST: none. Free tier.
+
+   PROVIDER QUOTA HEADERS (last observed):
+      x-ratelimit-limit-requests         1000
+      x-ratelimit-remaining-requests     939
+      x-ratelimit-reset-requests         1h27m50.4s
+      x-ratelimit-limit-tokens           8000
+      x-ratelimit-remaining-tokens       4518
+      x-ratelimit-reset-tokens           26.115s
+   x-ratelimit-reset-requests is the OBSERVED daily reset. Groq does not
+   document reset timing, so this header is the only authority on it.
+
+   wrote results/08_pilot_parsed.csv (raw shards untouched)

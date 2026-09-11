@@ -1,0 +1,153 @@
+==========================================================================================
+(a) ALL harm_type VALUES, counted at ITEM level (n=350)
+==========================================================================================
+71 distinct raw strings
+
+     80  Racial
+     33  Political
+     29  Gendered & Sexist
+     15  LGBTQ+ & Homophobic
+     14  Health
+     10  Bigoted
+      9  Personal
+      9  Religious
+      9  Wealth/Finance
+      8  Misinformation
+      7  Miscellaneous
+      7  Sexual
+      6  Legal
+      6  Criminal/carceral
+      6  Racial,Political
+      4  Aggressive
+      4  Misinformation,Political
+      4  Political,Misinformation
+      4  National/regional
+      4  Drugs/alcohol
+      4  Health,Misinformation
+      3  Misinformation,Health
+      3  Religious,Gendered & Sexist
+      3  Racial,National/regional
+      3  Environment/climate
+      3  Abortion,Political
+      2  Political,National/regional
+      2  Political,Racial
+      2  Ageism
+      2  Gendered & Sexist,Mental health/self harm
+      2  Regulated goods
+      2  Gendered & Sexist,Violent/Gory
+      2  Political,Bigoted
+      2  Gendered & Sexist,Personal
+      2  Political,Aggressive
+      2  Ablist
+      2  Racial,Bigoted
+      2  Drugs/alcohol,Health
+      2  Mental health/self harm
+      2  Health,Drugs/alcohol
+      2  Regulated goods,Legal
+      2  Legal,Misinformation
+      2  Identity
+      2  Violent/Gory,Criminal/carceral
+      1  Aggressive,Violent/Gory
+      1  Abortion,Political,Misinformation
+      1  LGBTQ+ & Homophobic,Bigoted
+      1  Gendered & Sexist,Political
+      1  Racial,Sexual
+      1  Bigoted,National/regional
+      1  Political,Environment/climate
+      1  LGBTQ+ & Homophobic,Violent/Gory
+      1  National/regional,Political,Misinformation
+      1  Aggressive,Sexual
+      1  Health,National/regional,Legal
+      1  Gendered & Sexist,Aggressive
+      1  Drugs/alcohol,Criminal/carceral
+      1  Gendered & Sexist,Bigoted
+      1  Drugs/alcohol,Identity
+      1  Racial,Gendered & Sexist
+      1  Regulated goods,National/regional
+      1  Identity,LGBTQ+ & Homophobic
+      1  National/regional,Regulated goods
+      1  Gendered & Sexist,Identity
+      1  Misinformation,Health,Political
+      1  Legal,Personal
+      1  Misinformation,Wealth/Finance
+      1  Violent/Gory
+      1  Mental health/self harm,Health
+      1  Aggressive,Personal
+      1  Gendered & Sexist,Racial
+
+--- split on comma: atomic tag frequency (an item may carry several) ---
+25 distinct atomic tags
+
+     96  Racial
+     63  Political
+     44  Gendered & Sexist
+     29  Misinformation
+     28  Health
+     18  LGBTQ+ & Homophobic
+     17  Bigoted
+     14  National/regional
+     13  Personal
+     12  Legal
+     12  Religious
+     10  Aggressive
+     10  Wealth/Finance
+     10  Drugs/alcohol
+      9  Sexual
+      9  Criminal/carceral
+      7  Violent/Gory
+      7  Miscellaneous
+      6  Regulated goods
+      5  Mental health/self harm
+      5  Identity
+      4  Abortion
+      4  Environment/climate
+      2  Ageism
+      2  Ablist
+
+items with 1 tag: 268, 2 tags: 78, 3+ tags: 4
+
+==========================================================================================
+(b) NON-RESPONSE / 'PREFER NOT TO ANSWER' CHECK
+==========================================================================================
+
+-- rater_gender  (2 levels, 0 null) --
+   Woman                                                                                        62
+   Man                                                                                          61
+   [whitespace-only or empty string values: 0]
+
+-- rater_race  (5 levels, 0 null) --
+   White                                                                                        30
+   Black/African American                                                                       29
+   Asian/Asian subcontinent                                                                     26   <== matches ['n/a']
+   LatinX, Latino, Hispanic or Spanish Origin                                                   22
+   Multiracial                                                                                  16
+   [whitespace-only or empty string values: 0]
+
+-- rater_raw_race  (14 levels, 0 null) --
+   White                                                                                        30
+   Black or African American                                                                    29
+   LatinX, Latino, Hispanic or Spanish Origin                                                   22
+   East or South-East Asian                                                                     21
+   Indian subcontinent (including Bangladesh, Bhutan, India, Maldives, Nepal, Pakistan, and      5
+   White, LatinX, Latino, Hispanic or Spanish Origin                                             5
+   White, East or South-East Asian                                                               4
+   White, LatinX, Latino, Hispanic or Spanish Origin, East or South-East Asian                   1
+   LatinX, Latino, Hispanic or Spanish Origin, East or South-East Asian                          1
+   LatinX, Latino, Hispanic or Spanish Origin, American Indian or Alaska Native                  1   <== matches ['na']
+   White, American Indian or Alaska Native                                                       1   <== matches ['na']
+   White, East or South-East Asian, Japanese                                                     1
+   Black or African American, East or South-East Asian                                           1
+   LatinX, Latino, Hispanic or Spanish Origin, Mexican Indigenous                                1
+   [whitespace-only or empty string values: 0]
+
+-- rater_age  (3 levels, 0 null) --
+   gen z                                                                                        56
+   millenial                                                                                    36
+   gen x+                                                                                       31
+   [whitespace-only or empty string values: 0]
+
+-- rater_education  (3 levels, 0 null) --
+   College degree or higher                                                                     75
+   High school or below                                                                         41
+   Other                                                                                         7   <== matches ['other']
+   [whitespace-only or empty string values: 0]

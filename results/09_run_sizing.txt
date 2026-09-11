@@ -1,0 +1,31 @@
+============================================================================================
+PHASE 2 RUNNER - mode=full  provider=groq  model=qwen/qwen3.8-27b
+============================================================================================
+   item blocks        [1]  (175 items, frozen in results/09_item_blocks.csv)
+      block 1: 175 items  [RUNNING]
+      block 2: 175 items  [queued]
+   planned calls      3,675
+   already complete   0
+   remaining          3,675
+   existing shards    0
+
+   configured limits  30 RPM / 1000 RPD / 8000 TPM / 2000000 TPD
+   limits verified    True
+   limits source      console.groq.com/docs/rate-limits, fetched 2026-08-26
+
+   PROJECTION for the 3,675 remaining calls
+      mean estimated input tokens/call   1136
+      throughput ceiling                 7.0 calls/min
+      daily ceiling                      1,000 calls/day   (RPD-bound)
+      calendar days needed               3.7
+      in-day wall-clock at the ceiling   8.7 hours of actual calling
+   item blocks        [1, 2]  (350 items, frozen in results/09_item_blocks.csv)
+      block 1: 175 items  [RUNNING]
+      block 2: 175 items  [RUNNING]
+   planned calls      7,350
+   PROJECTION for the 7,350 remaining calls
+      mean estimated input tokens/call   1134
+      throughput ceiling                 7.1 calls/min
+      daily ceiling                      1,000 calls/day   (RPD-bound)
+      calendar days needed               7.3
+      in-day wall-clock at the ceiling   17.4 hours of actual calling

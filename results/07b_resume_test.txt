@@ -1,0 +1,28 @@
+pilot plan: 60 calls
+
+1. completed keys skipped
+   complete 30 (expected 30)   remaining 30 (expected 30)
+2. error records retried
+   error records seen 5 (expected 5)
+   all 5 errored keys are back in the todo list: yes
+3. torn final line tolerated: yes (reader did not raise, key 999|... not counted)
+
+4. duplicate keys across shards counted once
+   duplicates reported 5 (expected 5)
+5. records spread over shards all honoured
+   complete 45 (expected 45)   remaining 15 (expected 15)
+
+6. complete shard set leaves nothing to do
+   complete 60 / 60   remaining 0 (expected 0)
+
+==============================================================================
+THE GUARANTEE
+==============================================================================
+   Each response is written, flushed, and fsync'd before the next call is made.
+   Worst case loss on a crash, kill, quota wall, or power cut is therefore
+   ONE call - the one in flight. A crash at call 5,000 of 7,350 costs call
+   5,000 only; the other 4,999 are on disk and are skipped on restart.
+
+ALL RESUME TESTS PASSED
+
+(temp shards deleted; raw_responses/ was never written to)

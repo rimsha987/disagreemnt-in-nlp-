@@ -1,0 +1,19 @@
+================================================================================================
+HEADLINE NUMBERS
+================================================================================================
+   FULL-PRECISION, all 350 items, 6 cells, all raters per group
+      all 123 human raters      TVD 0.20315   excess over null +0.03766 (z +3.78)
+      104 kept (filtered)       TVD 0.20900   excess over null +0.02548 (z +2.75)
+
+   LIKE-FOR-LIKE, 15 items, 2 groups, ONE draw per group (same estimator as LLM)
+      humans, full groups       TVD 0.40061  (10 and 11 raters)
+      humans, 1 rater per group TVD 0.52430  [95% 0.26667, 0.73333], 2000 draws
+      LLM persona v1            TVD 0.13333
+      LLM persona v2            TVD 0.20000
+      same-persona NOISE FLOOR  TVD 0.14000  [0.06667, 0.26667], 10 pairs
+
+   P(noise >= condition):  v1 0.60   v2 0.30   humans@n=1 0.00
+   humans at n=1 sit ABOVE the floor's observed range; both LLM conditions sit inside it.
+   wrote figures/fig6_between_group_spread.pdf and figures/fig6_between_group_spread.png
+
+   wrote results/13_headline_numbers.csv

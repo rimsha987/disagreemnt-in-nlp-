@@ -1,0 +1,115 @@
+================================================================================================
+CHECKPOINT-3 DIAGNOSTIC REPORT
+================================================================================================
+   diagnostic records 120   (A 75, B 45)
+   API errors         0
+   parse failures     0
+   model_version      ['qwen/qwen3.8-27b']
+
+================================================================================================
+DIAGNOSTIC A - THE NOISE FLOOR
+Asian-Woman#1, v1 prompt, 5 independent repetitions, same 15 items
+================================================================================================
+
+   per-item ratings across the 5 repetitions:
+rep       1    2       3    4       5
+item_id                              
+10       No   No      No   No      No
+42       No   No      No   No      No
+50       No   No      No   No  Unsure
+51       No   No      No   No      No
+52       No   No      No   No     Yes
+54       No   No      No   No      No
+68       No  Yes  Unsure   No      No
+134      No   No      No   No      No
+183      No   No      No   No      No
+185      No   No      No   No      No
+220      No   No      No   No      No
+239      No   No      No   No      No
+274      No   No      No   No      No
+313      No   No      No  Yes     Yes
+316      No   No      No   No      No
+
+   items identical on all 5 reps : 11 / 15
+   items with 2 distinct ratings  : 3
+   items with 3 distinct ratings  : 1
+   mean per-item modal share      : 0.920
+   mean per-item flip rate        : 0.080  (chance a single draw differs from the item's own mode)
+
+   SAME-PERSONA PAIRWISE DISAGREEMENT (the like-for-like floor)
+      10 pairs of repetitions, each 1 draw vs 1 draw on 15 items
+      counts: [1, 1, 1, 1, 2, 2, 2, 3, 4, 4]
+      mean 2.10/15   median 2.0/15   min 1   max 4
+      95% range [1.0, 4.0]
+
+   OBSERVED between-cell (pilot, v1): 2/15
+   P(noise >= 2) = 0.60   percentile 40th
+   directional P(Yes) gap AW-WM under v1: +0.067   (human +0.324)
+   -> DOES NOT CLEAR the noise floor
+
+================================================================================================
+DIAGNOSTIC B - PROMPT VARIANT v2
+================================================================================================
+
+   per-item ratings under v2:
+condition Asian-Woman#1 White-Man#1 baseline#1
+item_id                                       
+10                   No          No         No
+42                   No         Yes         No
+50                   No          No         No
+51                   No          No         No
+52                   No          No         No
+54                   No          No         No
+68                  Yes      Unsure         No
+134                  No          No         No
+183                  No          No         No
+185                  No          No         No
+220                  No          No         No
+239                  No          No         No
+274                  No          No         No
+313                  No      Unsure         No
+316                  No          No         No
+
+   P(Yes) by condition, matched 15 items
+      condition                v1       v2   human
+      Asian-Woman#1         0.067    0.067   0.433
+      White-Man#1           0.000    0.067   0.109
+      baseline#1            0.067    0.000   0.278
+      ALL calls             0.050    0.044   0.278 (all 123 humans)
+
+   rating mix under v2: {'No': np.int64(41), 'Yes': np.int64(2), 'Unsure': np.int64(2)}
+
+   between-cell under v2 (Asian-Woman#1 vs White-Man#1): 3/15
+   P(noise >= 3) = 0.30   percentile 70th
+   directional P(Yes) gap AW-WM under v2: +0.000  (human +0.324)
+   between-cell 3 vs noise floor mean 2.10  ->  DOES NOT CLEAR
+
+   CAVEAT: the floor was measured under v1. v2 changes the prompt, so its own
+   noise floor was not measured and could differ. This is the one round agreed,
+   so the v1 floor is used as the best available reference and the limitation is
+   stated rather than hidden.
+
+================================================================================================
+DECISION RULE, APPLIED
+================================================================================================
+   noise floor (same persona, 1 draw vs 1 draw): [1, 1, 1, 1, 2, 2, 2, 3, 4, 4]
+      mean 2.10/15, range 1-4
+   criterion: P(noise >= observed) <= 0.05, AND the directional P(Yes)
+      gap runs the human way. Beating the floor's MEAN is not sufficient - the
+      mean is the centre of the noise, not its edge.
+   POWER LIMIT: with 10 pairs the smallest achievable tail probability
+      is 0.10, so this round cannot return a p<=0.05 positive by
+      construction. It can return a clear negative or an inconclusive.
+   between-cell under v1: 2/15  -> does not clear
+   between-cell under v2: 3/15  -> does not clear
+
+   >>> STOP THE LLM ARM. Do not run the 3,675 calls.
+       Under neither prompt does the between-cell difference exceed the
+       same-persona sampling floor. Persona conditioning cannot be
+       distinguished from noise in this model, so a 3,675-call dataset would
+       not make the central RQ2 comparison interpretable - it would just
+       measure the same noise more precisely.
+       Write up as a DOCUMENTED NEGATIVE with the noise floor as the evidence,
+       and pivot to Phase 1 + Phase 3 human conditions only.
+
+   wrote results/11_diag_parsed.csv (raw shards untouched)

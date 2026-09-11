@@ -1,0 +1,111 @@
+ITEM-LEVEL (n=350 conversations)
+
+-- degree_of_harm (per item) --
+   Extreme          199 items (56.9%)
+   Moderate          98 items (28.0%)
+   Benign            31 items (8.9%)
+   Debatable         22 items (6.3%)
+
+-- safety_gold (per item) --
+   No               175 items (50.0%)
+   Yes              175 items (50.0%)
+
+-- harm_type per item, top 15 --
+   Racial                                                 80
+   Political                                              33
+   Gendered & Sexist                                      29
+   LGBTQ+ & Homophobic                                    15
+   Health                                                 14
+   Bigoted                                                10
+   Personal                                                9
+   Religious                                               9
+   Wealth/Finance                                          9
+   Misinformation                                          8
+   Miscellaneous                                           7
+   Sexual                                                  7
+   Legal                                                   6
+   Criminal/carceral                                       6
+   Racial,Political                                        6
+
+=== CONVERSATION TEXT DUPLICATION ===
+unique context strings:            271 / 350
+unique response strings:           344 / 350
+unique (context,response) pairs:   350 / 350
+items involved in a duplicate pair: 0
+
+=== RATER CROSS-TABS (for persona cell planning) ===
+
+gender x race:
+rater_gender                                Man  Woman  All
+rater_race                                                 
+Asian/Asian subcontinent                     16     10   26
+Black/African American                       12     17   29
+LatinX, Latino, Hispanic or Spanish Origin   10     12   22
+Multiracial                                  12      4   16
+White                                        11     19   30
+All                                          61     62  123
+
+age x race:
+rater_age                                   gen x+  gen z  millenial  All
+rater_race                                                               
+Asian/Asian subcontinent                         7      4         15   26
+Black/African American                           6     18          5   29
+LatinX, Latino, Hispanic or Spanish Origin       6      9          7   22
+Multiracial                                      6      5          5   16
+White                                            6     20          4   30
+All                                             31     56         36  123
+
+age x gender:
+rater_gender  Man  Woman  All
+rater_age                    
+gen x+         17     14   31
+gen z          25     31   56
+millenial      19     17   36
+All            61     62  123
+
+raw_race detail:
+   White                                                                                              30
+   Black or African American                                                                          29
+   LatinX, Latino, Hispanic or Spanish Origin                                                         22
+   East or South-East Asian                                                                           21
+   Indian subcontinent (including Bangladesh, Bhutan, India, Maldives, Nepal, Pakistan, and Sri La     5
+   White, LatinX, Latino, Hispanic or Spanish Origin                                                   5
+   White, East or South-East Asian                                                                     4
+   White, LatinX, Latino, Hispanic or Spanish Origin, East or South-East Asian                         1
+   LatinX, Latino, Hispanic or Spanish Origin, East or South-East Asian                                1
+   LatinX, Latino, Hispanic or Spanish Origin, American Indian or Alaska Native                        1
+   White, American Indian or Alaska Native                                                             1
+   White, East or South-East Asian, Japanese                                                           1
+   Black or African American, East or South-East Asian                                                 1
+   LatinX, Latino, Hispanic or Spanish Origin, Mexican Indigenous                                      1
+
+=== Q_overall 'Yes' rate by demographic group (raw, all 123 raters) ===
+
+-- rater_gender --
+              n_raters  n_ratings  pct_unsafe
+rater_gender                                 
+Man                 61      21350       31.16
+Woman               62      21700       34.16
+
+-- rater_race --
+                                            n_raters  n_ratings  pct_unsafe
+rater_race                                                                 
+Asian/Asian subcontinent                          26       9100       36.64
+Black/African American                            29      10150       29.37
+LatinX, Latino, Hispanic or Spanish Origin        22       7700       35.48
+Multiracial                                       16       5600       38.21
+White                                             30      10500       27.40
+
+-- rater_age --
+           n_raters  n_ratings  pct_unsafe
+rater_age                                 
+gen x+           31      10850       34.92
+gen z            56      19600       31.75
+millenial        36      12600       32.16
+
+-- rater_education --
+                          n_raters  n_ratings  pct_unsafe
+rater_education                                          
+College degree or higher        75      26250       32.89
+High school or below            41      14350       32.82
+Other                            7       2450       29.43

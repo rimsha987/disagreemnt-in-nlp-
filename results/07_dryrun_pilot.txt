@@ -1,0 +1,26 @@
+============================================================================================
+PHASE 2 RUNNER - mode=pilot  provider=gemini  model=gemini-2.5-flash
+============================================================================================
+   planned calls      60
+   already complete   0
+   remaining          60
+   existing shards    0
+
+   configured limits  10 RPM / 250 RPD / 250000 TPM
+   limits verified    False
+   limits source      ai.google.dev/gemini-api/docs/rate-limits (no free-tier table as of 2026-08-18); placeholder from last public figures, mid-2025
+   *** these limits are a PLACEHOLDER, not a published figure. The runner
+       backs off adaptively regardless, but the projection below is a guess.
+
+   PROJECTION for the 60 remaining calls
+      mean estimated input tokens/call   1120
+      throughput ceiling                 10.0 calls/min
+      daily ceiling                      250 calls/day   (RPD-bound)
+      calendar days needed               0.2
+      in-day wall-clock at the ceiling   0.1 hours of actual calling
+
+DRY RUN. Validating requests; no API call, no file written.
+   all 60 requests valid
+   distinct persona/baseline texts: 4
+
+DRY RUN PASSED.

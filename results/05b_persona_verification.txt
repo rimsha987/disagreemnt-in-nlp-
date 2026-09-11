@@ -1,0 +1,48 @@
+============================================================================================
+WITHIN-CELL (age, education) PROFILES, derived from the real rater pool
+============================================================================================
+
+-- Asian-Man  (n=16 raters, 6 distinct profiles) --
+   persona 1: millenial  | College degree or higher   | 6 real raters have this profile
+   persona 2: gen x+     | College degree or higher   | 4 real raters have this profile
+   persona 3: millenial  | High school or below       | 3 real raters have this profile
+   frozen in personas.py: MATCH
+
+-- Asian-Woman  (n=10 raters, 3 distinct profiles) --
+   persona 1: millenial  | College degree or higher   | 5 real raters have this profile
+   persona 2: gen x+     | College degree or higher   | 3 real raters have this profile
+   persona 3: gen z      | High school or below       | 2 real raters have this profile
+   frozen in personas.py: MATCH
+
+-- Black-Man  (n=12 raters, 4 distinct profiles) --
+   persona 1: gen z      | College degree or higher   | 5 real raters have this profile
+   persona 2: gen x+     | College degree or higher   | 4 real raters have this profile
+   persona 3: gen z      | High school or below       | 2 real raters have this profile
+   frozen in personas.py: MATCH
+
+-- Black-Woman  (n=17 raters, 6 distinct profiles) --
+   persona 1: gen z      | High school or below       | 6 real raters have this profile
+   persona 2: millenial  | College degree or higher   | 4 real raters have this profile
+   persona 3: gen z      | College degree or higher   | 3 real raters have this profile
+   frozen in personas.py: MATCH
+
+-- White-Man  (n=11 raters, 5 distinct profiles) --
+   persona 1: gen z      | College degree or higher   | 4 real raters have this profile
+   persona 2: gen z      | High school or below       | 3 real raters have this profile
+   persona 3: gen x+     | College degree or higher   | 2 real raters have this profile
+   frozen in personas.py: MATCH
+
+-- White-Woman  (n=19 raters, 5 distinct profiles) --
+   persona 1: gen z      | College degree or higher   | 7 real raters have this profile
+   persona 2: gen z      | High school or below       | 5 real raters have this profile
+   persona 3: gen x+     | College degree or higher   | 4 real raters have this profile
+   frozen in personas.py: MATCH
+
+============================================================================================
+VERIFICATION: PASS - personas.py matches the data
+============================================================================================
+
+   condition texts generated: 19   distinct: 19
+   all 18 persona texts are distinct from each other and from the baseline: yes
+
+   wrote results/05b_persona_profiles.csv

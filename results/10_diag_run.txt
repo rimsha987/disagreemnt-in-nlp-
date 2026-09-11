@@ -1,0 +1,22 @@
+============================================================================================
+DIAGNOSTIC ROUND - provider=groq model=qwen/qwen3.8-27b
+============================================================================================
+   Diagnostic A (noise floor, v1 prompt, 5 reps of Asian-Woman#1): 75 calls
+   Diagnostic B (v2 prompt, 3 conditions):                        45 calls
+   total planned      120
+   already complete   0
+   remaining          120
+
+   writing to raw_responses/phase2/diag_groq_20260827T122300.jsonl
+
+   20/120  ok=20 err=0  9.4/min  2.1m elapsed
+   40/120  ok=40 err=0  8.0/min  5.0m elapsed
+   60/120  ok=60 err=0  8.4/min  7.2m elapsed
+   80/120  ok=80 err=0  8.0/min  10.0m elapsed
+   100/120  ok=100 err=0  8.2/min  12.2m elapsed
+   120/120  ok=120 err=0  7.9/min  15.1m elapsed
+
+   done: 120 ok, 0 errors, 15.1 min
+   progress 120/120
+
+   now run: .venv/Scripts/python.exe src/11_diagnostic_report.py

@@ -1,0 +1,119 @@
+% =====================================================================
+%  DRAFT expansion of Section 2, written after reading all five papers.
+%
+%  VERIFY EVERY CHARACTERISATION AGAINST THE PAPER BEFORE SUBMITTING.
+%  I have read them and the claims below are sourced, but you are the
+%  author and you should be able to defend each sentence.
+%
+%  Replaces 2.2, extends 2.3, and adds 2.5 and 2.6.
+%  The fifth column of Table 2.1 is YOUR argument - none of these papers
+%  asks what a quality filter removes. That is what makes the table worth
+%  printing rather than listing.
+% =====================================================================
+
+\subsection{Taxonomies of disagreement}
+
+Asking what disagreement \emph{is} produces more than one answer, and the answers do not reduce
+to a single decomposition. Four accounts are relevant here, and they differ in where they locate
+the disagreement rather than merely in vocabulary.
+
+Lindahl (2024) distinguishes boundary, label, and existence disagreement: annotators may differ
+about where the task's boundary falls, about which label applies within it, or about whether a
+valid answer exists at all. Jiang and de Marneffe (2022) work bottom-up from data rather than
+top-down from theory, developing a taxonomy of ten disagreement sources over MNLI and ChaosNLI
+items, grouped into three high-level classes. \emph{Uncertainty in sentence meaning} covers
+lexical ambiguity, implicature, presupposition, probabilistic enrichment, and imperfection;
+\emph{underspecification in guidelines} covers coreference, temporal reference, and interrogative
+hypotheses; \emph{annotator behaviour} covers accommodating minimally added content and high
+lexical overlap heuristics. The three classes locate disagreement in the item, in the task
+definition, and in the annotator respectively.
+
+Weber-Genzel et al.\ (2024) draw a different line, between human label variation --- different
+labels assigned for valid reasons --- and annotation error, where a label is assigned for an
+invalid reason. Their contribution is methodological as much as conceptual: in VariErr NLI they
+operationalise the distinction with a two-round procedure in which annotators first explain each
+label and then judge the validity of others' label--explanation pairs, producing 7,732 validity
+judgments over 1,933 explanations for 500 re-annotated MNLI items. The distinction is therefore
+carried by the \emph{reason}, not by the label. Sang and Stanton (2022) locate disagreement in
+the annotator instead, developing a multidimensional scale from interviews and concept mapping
+and testing it with 170 hate-speech annotators, and reporting that facets of individual
+difference such as age and personality relate to labelling decisions.
+
+\begin{table}[htbp]
+\centering
+\caption{Four accounts of disagreement, and what each implies about rater filtering.}
+\label{tab:taxonomies}
+\small
+\begin{tabularx}{\textwidth}{p{2.5cm}p{2.2cm}Xp{2.6cm}}
+\toprule
+\textbf{Source} & \textbf{Domain} & \textbf{Categories} & \textbf{Located in} \\
+\midrule
+Lindahl (2024) & argumentation & boundary / label / existence & task, answer, or whether an
+answer exists \\
+Jiang \& de Marneffe (2022) & NLI & 10 sources in 3 classes: uncertainty in sentence meaning;
+underspecification in guidelines; annotator behaviour & the item, the guidelines, or the
+annotator \\
+Weber-Genzel et al.\ (2024) & NLI & human label variation vs annotation error, separated by
+validity of the stated reason & the reason behind the label \\
+Sang \& Stanton (2022) & hate speech & multidimensional scale of annotator individual
+differences & stable annotator characteristics \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+These accounts matter for the present study in a specific way, and the point is not one any of
+them makes. A rater quality filter is an operation that removes annotators. Read against
+Jiang and de Marneffe's taxonomy, such a filter is aimed at their third class --- annotator
+behaviour --- while their first two classes are precisely the signal a disagreement-aware
+analysis wants to keep. A filter that cannot distinguish the classes removes both. Read against
+Weber-Genzel et al., the difficulty sharpens: separating error from variation required them to
+collect explanations and validity judgments, because the distinction lives in the reason and not
+in the label pattern. The DICES filter, like most published quality filters, records no reasons
+at all. The error/variation distinction is therefore not merely unmeasured in this dataset but
+unavailable in principle, which is why Section~\ref{sec:published-filter} treats the published
+exclusion list as a single fixed operation rather than a criterion that could be re-derived.
+
+Sang and Stanton's finding adds a further caution. If disagreement is partly a function of stable
+annotator characteristics, then filtering on behavioural signals risks removing \emph{people}
+rather than \emph{errors} --- which is testable, and is what RQ1 tests.
+
+This also fixes the scope of what this paper measures. The analysis operates on categorical
+item-level labels: soft-label vectors over No, Yes, and Unsure, compared with TVD and JSD.
+Under Lindahl's decomposition this captures label disagreement directly but cannot separate
+boundary from existence disagreement, and under Weber-Genzel et al.'s it cannot separate
+variation from error at all. Two raters who disagree because they read the task differently are
+indistinguishable here from two who read it the same way and judged differently. The measurements
+therefore quantify one observable form of disagreement, and the negative persona result in
+particular is scoped to that form.
+
+\subsection{What to do with disagreement once it has been measured}
+\label{sec:whattodo}
+
+Measuring disagreement and deciding what to do with it are separable problems, and the present
+study addresses only the first. Two lines of work address the second and are worth stating
+because they define what a measurement like this one is \emph{for}.
+
+Gordon et al.\ (2022) pose the question directly: whose labels should a model learn to emulate?
+Their answer, jury learning, replaces implicit majority vote with an explicit choice of which
+people or groups determine a prediction, and in what proportion. Architecturally they model every
+annotator in a dataset, sample from those models to populate a jury, then run inference. The
+framing is directly relevant here: a between-group spread measurement is a precondition for jury
+learning rather than a competitor to it. If a quality filter has silently removed one demographic
+axis from a corpus, a jury drawn from that corpus inherits the removal, and no amount of care in
+composing the jury will recover what is no longer there.
+
+Romberg (2022) takes a different route to the same concern. Rather than changing whose labels
+count, PerspectifyMe enriches a prediction with a subjectivity score derived from the annotation
+process, so that a model reports both an aggregated hard label and an indication of which items
+elicited genuinely different views. Applied to argument concreteness, this treats contested items
+as something to flag rather than to resolve --- an alternative to removing raters that leaves the
+disagreement visible downstream.
+
+\subsection{Summary of the gap}
+
+Filtering and persona-prompting have each been examined, and disagreement has been taxonomised
+(Lindahl, 2024; Jiang \& de Marneffe, 2022; Weber-Genzel et al., 2024), traced to annotator
+characteristics (Sang \& Stanton, 2022), and modelled downstream (Gordon et al., 2022;
+Romberg, 2022). What has not been done is to measure both operations on the same items, with the
+same metric, against the same null, and to ask whether they converge on the same reduced view.
+That is the question this paper addresses.

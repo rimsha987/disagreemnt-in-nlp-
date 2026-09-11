@@ -1,0 +1,35 @@
+   configured limits  10 RPM / 250 RPD / 250000 TPM
+   limits verified    False
+   limits source      ai.google.dev/gemini-api/docs/rate-limits (no free-tier table as of 2026-08-18); placeholder from last public figures, mid-2025
+   *** these limits are a PLACEHOLDER, not a published figure. The runner
+       backs off adaptively regardless, but the projection below is a guess.
+
+   PROJECTION for the 7,350 remaining calls
+      mean estimated input tokens/call   1134
+      throughput ceiling                 10.0 calls/min
+      daily ceiling                      250 calls/day   (RPD-bound)
+      calendar days needed               29.4
+      in-day wall-clock at the ceiling   12.2 hours of actual calling
+
+   configured limits  30 RPM / 1000 RPD / 8000 TPM / 2000000 TPD
+   limits verified    True
+   limits source      console.groq.com/docs/rate-limits, fetched 2026-08-26
+
+   PROJECTION for the 7,350 remaining calls
+      mean estimated input tokens/call   1134
+      throughput ceiling                 7.1 calls/min
+      daily ceiling                      1,000 calls/day   (RPD-bound)
+      calendar days needed               7.3
+      in-day wall-clock at the ceiling   17.4 hours of actual calling
+
+   configured limits  30 RPM / 1000 RPD / 8000 TPM / 200000 TPD
+   limits verified    True
+   limits source      console.groq.com/docs/rate-limits, fetched 2026-08-26
+
+   PROJECTION for the 7,350 remaining calls
+      mean estimated input tokens/call   1134
+      throughput ceiling                 7.1 calls/min
+      daily ceiling                      176 calls/day   (TPD-bound)
+      calendar days needed               41.7
+      in-day wall-clock at the ceiling   17.4 hours of actual calling
+

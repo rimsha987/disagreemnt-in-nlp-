@@ -1,0 +1,137 @@
+================================================================================================
+RQ1 PART 1 - WHO DOES THE PUBLISHED FILTER REMOVE?
+================================================================================================
+rater pool: 123   removed: 19   kept: 104
+rows removed: 6650 / 43050 (15.4%)
+ratings removed per item: min=19 max=19 (uniform across all 350 items: True)
+
+================================================================================================
+VERIFICATION AGAINST CHECKPOINT-2 TARGETS (computed vs required)
+================================================================================================
+
+-- Gender --
+   group                                         pool  removed  target  kept  t.kept  status
+   Woman                                           62        5       5    57      57  MATCH
+   Man                                             61       14      14    47      47  MATCH
+   column sum                                     123       19      19                MATCH
+
+-- Age group --
+   group                                         pool  removed  target  kept  t.kept  status
+   gen z                                           56        7       7    49      49  MATCH
+   millennial                                      36        8       8    28      28  MATCH
+   gen x+                                          31        4       4    27      27  MATCH
+   column sum                                     123       19      19                MATCH
+
+-- Race/ethnicity --
+   group                                         pool  removed  target  kept  t.kept  status
+   Asian                                           26        5       5    21      21  MATCH
+   Black                                           29        6       6    23      23  MATCH
+   Latine/x                                        22        0       0    22      22  MATCH
+   Multiracial                                     16        3       3    13      13  MATCH
+   White                                           30        5       5    25      25  MATCH
+   column sum                                     123       19      19                MATCH
+
+   OVERALL VERIFICATION: PASS - all cells match
+
+================================================================================================
+REMOVAL RATE BY GROUP, with exact (Clopper-Pearson) 95% CI
+================================================================================================
+
+-- Gender --
+   group                        n_pool n_removed     rate              95% CI
+   Woman                            62         5     8.1%   [  2.7,  17.8]
+   Man                              61        14    23.0%   [ 13.2,  35.5]
+
+-- Race/ethnicity --
+   group                        n_pool n_removed     rate              95% CI
+   Asian                            26         5    19.2%   [  6.6,  39.4]
+   Black                            29         6    20.7%   [  8.0,  39.7]
+   Latine/x                         22         0     0.0%   [  0.0,  15.4]
+   Multiracial                      16         3    18.8%   [  4.0,  45.6]
+   White                            30         5    16.7%   [  5.6,  34.7]
+
+-- Age group --
+   group                        n_pool n_removed     rate              95% CI
+   gen z                            56         7    12.5%   [  5.2,  24.1]
+   millennial                       36         8    22.2%   [ 10.1,  39.2]
+   gen x+                           31         4    12.9%   [  3.6,  29.8]
+
+-- Education --
+   group                        n_pool n_removed     rate              95% CI
+   College+                         75        11    14.7%   [  7.6,  24.7]
+   HS or below                      41         8    19.5%   [  8.8,  34.9]
+   Other                             7         0     0.0%   [  0.0,  41.0]
+
+   ALL RATERS                      123        19    15.4%   [  9.6,  23.1]
+
+================================================================================================
+IS REMOVAL INDEPENDENT OF GROUP MEMBERSHIP?
+Fisher's exact throughout. Omnibus = Freeman-Halton exact for 2xC.
+================================================================================================
+
+-- Gender --
+   table (row0=removed, row1=kept), columns ['Woman', 'Man']:
+     removed [5, 14]
+     kept    [57, 47]
+   Freeman-Halton exact p = 0.0262   (20 tables enumerated)
+   Cramer's V = 0.206   (n = 123 raters)
+
+   per group vs all other raters (2x2 Fisher's exact, conditional MLE OR):
+   group                           a/b (rm/kept)       OR               95% CI         p
+   Woman                                    5/57     0.30         [0.08, 0.95]    0.0262
+   Man                                     14/47     3.36        [1.05, 12.83]    0.0262
+
+-- Race/ethnicity --
+   table (row0=removed, row1=kept), columns ['Asian', 'Black', 'Latine/x', 'Multiracial', 'White']:
+     removed [5, 6, 0, 3, 5]
+     kept    [21, 23, 22, 13, 25]
+   Freeman-Halton exact p = 0.1667   (8840 tables enumerated)
+   Cramer's V = 0.203   (n = 123 raters)
+
+   per group vs all other raters (2x2 Fisher's exact, conditional MLE OR):
+   group                           a/b (rm/kept)       OR               95% CI         p
+   Asian                                    5/21     1.41         [0.36, 4.76]    0.5487
+   Black                                    6/23     1.62         [0.45, 5.21]    0.3859
+   Latine/x                                 0/22        0         [0.00, 0.89]    0.0232
+   Multiracial                              3/13     1.31         [0.22, 5.57]    0.7127
+   White                                    5/25     1.13         [0.29, 3.75]    0.7792
+
+-- Age group --
+   table (row0=removed, row1=kept), columns ['gen z', 'millennial', 'gen x+']:
+     removed [7, 8, 4]
+     kept    [49, 28, 27]
+   Freeman-Halton exact p = 0.4523   (210 tables enumerated)
+   Cramer's V = 0.121   (n = 123 raters)
+
+   per group vs all other raters (2x2 Fisher's exact, conditional MLE OR):
+   group                           a/b (rm/kept)       OR               95% CI         p
+   gen z                                    7/49     0.66         [0.20, 1.98]    0.4609
+   millennial                               8/28     1.96         [0.62, 6.01]    0.2715
+   gen x+                                   4/27     0.76         [0.17, 2.68]    0.7792
+
+-- Education --
+   table (row0=removed, row1=kept), columns ['College+', 'HS or below', 'Other']:
+     removed [11, 8, 0]
+     kept    [64, 33, 7]
+   Freeman-Halton exact p = 0.5907   (132 tables enumerated)
+   Cramer's V = 0.122   (n = 123 raters)
+
+   per group vs all other raters (2x2 Fisher's exact, conditional MLE OR):
+   group                           a/b (rm/kept)       OR               95% CI         p
+   College+                                11/64     0.86         [0.29, 2.69]    0.8016
+   HS or below                              8/33     1.56         [0.49, 4.73]    0.4310
+   Other                                     0/7        0         [0.00, 3.87]    0.5941
+
+================================================================================================
+POWER NOTE
+================================================================================================
+   The whole test rests on 123 raters and 19 removals. The smallest
+   race cell holds 16 raters; Latine/x has 0 removals, so its odds ratio is 0
+   with an unbounded-below interval. Any group-level rate here carries a CI
+   roughly +/-15 points wide. These tests are underpowered by construction and
+   no null result should be read as evidence of no effect.
+
+FIGURE 1
+   wrote figures/fig1_removal_rate_by_group.pdf and figures/fig1_removal_rate_by_group.png
+
+wrote results/02_removal_by_group.csv, results/02_removal_tests.csv

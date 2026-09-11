@@ -1,0 +1,19 @@
+
+====================================================================================================
+TOKEN PROFILE (ESTIMATES)
+From a 3.6 chars/token heuristic, not measured. Each provider tokenises differently;
+the pilot reports real counts from the API and supersedes these.
+====================================================================================================
+
+   rubric (identical in every call)               900
+   persona block (mean over the 19 texts)         90
+   conversation + cue (mean over 350)            148   [min 61, max 441]
+   ------------------------------------------------
+   input per call                               1138
+   output (forced single word)                     8
+
+   full run: 350 items x 21 conditions = 7,350 calls
+   estimated total input tokens: 8.4M
+
+   COST: none. Both target providers are free-tier. The binding constraint is
+   rate limits and wall-clock, not money. See src/07_run.py --status.

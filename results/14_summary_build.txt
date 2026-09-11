@@ -1,0 +1,23 @@
+wrote results/SUMMARY_TABLE.csv and .md
+   97 rows across phases ['0', '1', '2', '2/3', '3']
+   distinct source files cited: 20
+      FINDINGS.md 2.13  (1 rows)
+      data/dices-dataset/350/README.md  (1 rows)
+      data/dices-dataset/350/diverse_safety_adversarial_dialog_350.csv  (7 rows)
+      results/02_removal_by_group.csv  (14 rows)
+      results/02_removal_tests.csv  (6 rows)
+      results/03_entropy_bins.csv  (3 rows)
+      results/03_item_jsd.csv  (4 rows)
+      results/03_labels_report.txt  (1 rows)
+      results/03b_direction_tests.csv  (3 rows)
+      results/04_profile_report.txt  (1 rows)
+      results/04_profile_tests.csv  (7 rows)
+      results/05_cell_scheme_scores.csv  (6 rows)
+      results/05_chosen_cells.csv  (1 rows)
+      results/08_pilot_report.txt  (6 rows)
+      results/11_diagnostic_report.txt  (4 rows)
+      results/12_spread_breakdowns.csv  (7 rows)
+      results/12_spread_by_condition.csv  (12 rows)
+      results/12_spread_nullB.csv  (4 rows)
+      results/13_headline_numbers.csv  (7 rows)
+      src/phase2_config.py  (2 rows)
